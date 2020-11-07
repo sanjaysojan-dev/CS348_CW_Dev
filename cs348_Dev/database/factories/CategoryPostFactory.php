@@ -24,8 +24,8 @@ class CategoryPostFactory extends Factory
     public function definition()
     {
         return [
-            'category_id' => Category::inRandomOrder()->first()->id,
-            'post_id' => Post::inRandomOrder()->first()->id,
+            'category_id' => $this->faker->numberBetween(2, 3),
+            'post_id' => $this->faker->numberBetween(2, 3),
         ];
     }
 }

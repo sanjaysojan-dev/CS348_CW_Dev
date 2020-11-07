@@ -14,6 +14,14 @@ class CommentTableSeeder extends Seeder
      */
     public function run()
     {
+        $comment = new Comment;
+        $comment->id = 1;
+        $comment->description = "comment_test";
+        $comment->post_id = 1;
+        $comment->user_id = 1;
+        $comment->save();
+
+
         Comment::factory()
             ->times(5)
             ->create();

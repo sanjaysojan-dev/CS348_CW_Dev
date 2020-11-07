@@ -19,7 +19,7 @@ class CreateCommentsTable extends Migration
             $table->timestamps();
 
             $table->unsignedBigInteger('post_id');
-             
+
             $table->foreign('post_id')->references('id')->on('posts')
                 ->cascadeOnUpdate('cascade')
                 ->cascadeOnDelete('cascade');

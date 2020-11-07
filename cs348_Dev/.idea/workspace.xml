@@ -20,10 +20,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b85cbadb-a3d0-4508-9bd6-8ab084124bdd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/UserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/UserFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Category.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Comment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Comment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/CategoryPostFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/CategoryPostFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_04_155617_create_comments_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_04_155617_create_comments_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/CategoryPostTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/CategoryPostTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/CategoryTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/CategoryTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/CommentTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/CommentTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/PostTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/PostTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/UserTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/UserTableSeeder.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -189,7 +195,8 @@
       <workItem from="1604504620488" duration="1390000" />
       <workItem from="1604512432475" duration="12032000" />
       <workItem from="1604564380803" duration="21690000" />
-      <workItem from="1604659645405" duration="15940000" />
+      <workItem from="1604659645405" duration="17930000" />
+      <workItem from="1604779026201" duration="4512000" />
     </task>
     <servers />
   </component>

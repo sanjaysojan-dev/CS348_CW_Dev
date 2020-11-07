@@ -14,6 +14,12 @@ class CategoryTableSeeder extends Seeder
      */
     public function run()
     {
+        $category = new Category;
+        $category->id = 1;
+        $category->title = "category_test";
+        $category->description = "category_test";
+        $category->save();
+
         Category::factory()
             ->times(2)
             ->create();
