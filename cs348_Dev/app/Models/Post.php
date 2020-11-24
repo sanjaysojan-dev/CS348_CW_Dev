@@ -10,6 +10,8 @@ class Post extends Model
     use HasFactory;
 
     /**
+     * Returns creator of post
+     * 
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function creator()
@@ -18,6 +20,8 @@ class Post extends Model
     }
 
     /**
+     * Returns all associated comments related to post
+     * 
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function comments()
@@ -26,6 +30,8 @@ class Post extends Model
     }
 
     /**
+     * Returns all of the categories the post is tagged under
+     * 
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function categories()

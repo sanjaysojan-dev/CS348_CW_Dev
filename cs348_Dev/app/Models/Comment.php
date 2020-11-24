@@ -10,6 +10,8 @@ class Comment extends Model
     use HasFactory;
 
     /**
+     * Returns the post the comment has been under 
+     * 
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function post(){
@@ -17,6 +19,8 @@ class Comment extends Model
     }
 
     /**
+     * Returns the creator of the comment
+     * 
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function creator(){

@@ -42,6 +42,8 @@ class User extends Authenticatable
     ];
 
     /**
+     * posts return many posts
+     * 
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function posts(){
@@ -49,9 +51,11 @@ class User extends Authenticatable
     }
 
     /**
+     * Comments return many comments
+     * 
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function comment(){
+    public function comments(){
         return $this->hasMany('App\Models\Comment');
     }
 }
