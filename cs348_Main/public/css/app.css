@@ -2295,6 +2295,10 @@ select {
           background-clip: text;
 }
 
+.bg-0 {
+  background-color: active;
+}
+
 .bg-transparent {
   background-color: transparent;
 }
@@ -2711,6 +2715,10 @@ select {
 .bg-pink-900 {
   --tw-bg-opacity: 1;
   background-color: rgba(131, 24, 67, var(--tw-bg-opacity));
+}
+
+.group:hover .group-hover\:bg-0 {
+  background-color: active;
 }
 
 .group:hover .group-hover\:bg-transparent {
@@ -3131,6 +3139,10 @@ select {
   background-color: rgba(131, 24, 67, var(--tw-bg-opacity));
 }
 
+.focus-within\:bg-0:focus-within {
+  background-color: active;
+}
+
 .focus-within\:bg-transparent:focus-within {
   background-color: transparent;
 }
@@ -3549,6 +3561,10 @@ select {
   background-color: rgba(131, 24, 67, var(--tw-bg-opacity));
 }
 
+.hover\:bg-0:hover {
+  background-color: active;
+}
+
 .hover\:bg-transparent:hover {
   background-color: transparent;
 }
@@ -3965,6 +3981,10 @@ select {
 .hover\:bg-pink-900:hover {
   --tw-bg-opacity: 1;
   background-color: rgba(131, 24, 67, var(--tw-bg-opacity));
+}
+
+.focus\:bg-0:focus {
+  background-color: active;
 }
 
 .focus\:bg-transparent:focus {
@@ -32978,6 +32998,10 @@ select {
             background-clip: text;
   }
 
+  .sm\:bg-0 {
+    background-color: active;
+  }
+
   .sm\:bg-transparent {
     background-color: transparent;
   }
@@ -33394,6 +33418,10 @@ select {
   .sm\:bg-pink-900 {
     --tw-bg-opacity: 1;
     background-color: rgba(131, 24, 67, var(--tw-bg-opacity));
+  }
+
+  .group:hover .sm\:group-hover\:bg-0 {
+    background-color: active;
   }
 
   .group:hover .sm\:group-hover\:bg-transparent {
@@ -33814,6 +33842,10 @@ select {
     background-color: rgba(131, 24, 67, var(--tw-bg-opacity));
   }
 
+  .sm\:focus-within\:bg-0:focus-within {
+    background-color: active;
+  }
+
   .sm\:focus-within\:bg-transparent:focus-within {
     background-color: transparent;
   }
@@ -34232,6 +34264,10 @@ select {
     background-color: rgba(131, 24, 67, var(--tw-bg-opacity));
   }
 
+  .sm\:hover\:bg-0:hover {
+    background-color: active;
+  }
+
   .sm\:hover\:bg-transparent:hover {
     background-color: transparent;
   }
@@ -34648,6 +34684,10 @@ select {
   .sm\:hover\:bg-pink-900:hover {
     --tw-bg-opacity: 1;
     background-color: rgba(131, 24, 67, var(--tw-bg-opacity));
+  }
+
+  .sm\:focus\:bg-0:focus {
+    background-color: active;
   }
 
   .sm\:focus\:bg-transparent:focus {
@@ -63583,6 +63623,10 @@ select {
             background-clip: text;
   }
 
+  .md\:bg-0 {
+    background-color: active;
+  }
+
   .md\:bg-transparent {
     background-color: transparent;
   }
@@ -63999,6 +64043,10 @@ select {
   .md\:bg-pink-900 {
     --tw-bg-opacity: 1;
     background-color: rgba(131, 24, 67, var(--tw-bg-opacity));
+  }
+
+  .group:hover .md\:group-hover\:bg-0 {
+    background-color: active;
   }
 
   .group:hover .md\:group-hover\:bg-transparent {
@@ -64419,6 +64467,10 @@ select {
     background-color: rgba(131, 24, 67, var(--tw-bg-opacity));
   }
 
+  .md\:focus-within\:bg-0:focus-within {
+    background-color: active;
+  }
+
   .md\:focus-within\:bg-transparent:focus-within {
     background-color: transparent;
   }
@@ -64837,6 +64889,10 @@ select {
     background-color: rgba(131, 24, 67, var(--tw-bg-opacity));
   }
 
+  .md\:hover\:bg-0:hover {
+    background-color: active;
+  }
+
   .md\:hover\:bg-transparent:hover {
     background-color: transparent;
   }
@@ -65253,6 +65309,10 @@ select {
   .md\:hover\:bg-pink-900:hover {
     --tw-bg-opacity: 1;
     background-color: rgba(131, 24, 67, var(--tw-bg-opacity));
+  }
+
+  .md\:focus\:bg-0:focus {
+    background-color: active;
   }
 
   .md\:focus\:bg-transparent:focus {
@@ -94188,6 +94248,10 @@ select {
             background-clip: text;
   }
 
+  .lg\:bg-0 {
+    background-color: active;
+  }
+
   .lg\:bg-transparent {
     background-color: transparent;
   }
@@ -94604,6 +94668,10 @@ select {
   .lg\:bg-pink-900 {
     --tw-bg-opacity: 1;
     background-color: rgba(131, 24, 67, var(--tw-bg-opacity));
+  }
+
+  .group:hover .lg\:group-hover\:bg-0 {
+    background-color: active;
   }
 
   .group:hover .lg\:group-hover\:bg-transparent {
@@ -95024,6 +95092,10 @@ select {
     background-color: rgba(131, 24, 67, var(--tw-bg-opacity));
   }
 
+  .lg\:focus-within\:bg-0:focus-within {
+    background-color: active;
+  }
+
   .lg\:focus-within\:bg-transparent:focus-within {
     background-color: transparent;
   }
@@ -95442,6 +95514,10 @@ select {
     background-color: rgba(131, 24, 67, var(--tw-bg-opacity));
   }
 
+  .lg\:hover\:bg-0:hover {
+    background-color: active;
+  }
+
   .lg\:hover\:bg-transparent:hover {
     background-color: transparent;
   }
@@ -95858,6 +95934,10 @@ select {
   .lg\:hover\:bg-pink-900:hover {
     --tw-bg-opacity: 1;
     background-color: rgba(131, 24, 67, var(--tw-bg-opacity));
+  }
+
+  .lg\:focus\:bg-0:focus {
+    background-color: active;
   }
 
   .lg\:focus\:bg-transparent:focus {
@@ -124793,6 +124873,10 @@ select {
             background-clip: text;
   }
 
+  .xl\:bg-0 {
+    background-color: active;
+  }
+
   .xl\:bg-transparent {
     background-color: transparent;
   }
@@ -125209,6 +125293,10 @@ select {
   .xl\:bg-pink-900 {
     --tw-bg-opacity: 1;
     background-color: rgba(131, 24, 67, var(--tw-bg-opacity));
+  }
+
+  .group:hover .xl\:group-hover\:bg-0 {
+    background-color: active;
   }
 
   .group:hover .xl\:group-hover\:bg-transparent {
@@ -125629,6 +125717,10 @@ select {
     background-color: rgba(131, 24, 67, var(--tw-bg-opacity));
   }
 
+  .xl\:focus-within\:bg-0:focus-within {
+    background-color: active;
+  }
+
   .xl\:focus-within\:bg-transparent:focus-within {
     background-color: transparent;
   }
@@ -126047,6 +126139,10 @@ select {
     background-color: rgba(131, 24, 67, var(--tw-bg-opacity));
   }
 
+  .xl\:hover\:bg-0:hover {
+    background-color: active;
+  }
+
   .xl\:hover\:bg-transparent:hover {
     background-color: transparent;
   }
@@ -126463,6 +126559,10 @@ select {
   .xl\:hover\:bg-pink-900:hover {
     --tw-bg-opacity: 1;
     background-color: rgba(131, 24, 67, var(--tw-bg-opacity));
+  }
+
+  .xl\:focus\:bg-0:focus {
+    background-color: active;
   }
 
   .xl\:focus\:bg-transparent:focus {
@@ -155398,6 +155498,10 @@ select {
             background-clip: text;
   }
 
+  .\32xl\:bg-0 {
+    background-color: active;
+  }
+
   .\32xl\:bg-transparent {
     background-color: transparent;
   }
@@ -155814,6 +155918,10 @@ select {
   .\32xl\:bg-pink-900 {
     --tw-bg-opacity: 1;
     background-color: rgba(131, 24, 67, var(--tw-bg-opacity));
+  }
+
+  .group:hover .\32xl\:group-hover\:bg-0 {
+    background-color: active;
   }
 
   .group:hover .\32xl\:group-hover\:bg-transparent {
@@ -156234,6 +156342,10 @@ select {
     background-color: rgba(131, 24, 67, var(--tw-bg-opacity));
   }
 
+  .\32xl\:focus-within\:bg-0:focus-within {
+    background-color: active;
+  }
+
   .\32xl\:focus-within\:bg-transparent:focus-within {
     background-color: transparent;
   }
@@ -156652,6 +156764,10 @@ select {
     background-color: rgba(131, 24, 67, var(--tw-bg-opacity));
   }
 
+  .\32xl\:hover\:bg-0:hover {
+    background-color: active;
+  }
+
   .\32xl\:hover\:bg-transparent:hover {
     background-color: transparent;
   }
@@ -157068,6 +157184,10 @@ select {
   .\32xl\:hover\:bg-pink-900:hover {
     --tw-bg-opacity: 1;
     background-color: rgba(131, 24, 67, var(--tw-bg-opacity));
+  }
+
+  .\32xl\:focus\:bg-0:focus {
+    background-color: active;
   }
 
   .\32xl\:focus\:bg-transparent:focus {

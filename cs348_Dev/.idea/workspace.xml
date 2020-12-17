@@ -21,10 +21,11 @@
   <component name="ChangeListManager">
     <list default="true" id="b85cbadb-a3d0-4508-9bd6-8ab084124bdd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Category.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Comment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Comment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Post.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cs348_Main/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../cs348_Main/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cs348_Main/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/../cs348_Main/public/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cs348_Main/resources/views/components/application-logo.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../cs348_Main/resources/views/components/application-logo.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cs348_Main/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../cs348_Main/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cs348_Main/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/../cs348_Main/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,7 +162,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../Project/Development/Digital-Signage/Display_System" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="settings.php.debug.servers" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -200,6 +201,7 @@
       <workItem from="1606162867689" duration="2397000" />
       <workItem from="1606167455687" duration="2099000" />
       <workItem from="1606170344728" duration="39000" />
+      <workItem from="1608215547569" duration="776000" />
     </task>
     <servers />
   </component>
