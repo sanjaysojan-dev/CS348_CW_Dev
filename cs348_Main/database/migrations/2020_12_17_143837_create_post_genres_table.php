@@ -14,7 +14,19 @@ class CreatePostGenresTable extends Migration
     public function up()
     {
         Schema::create('post_genres', function (Blueprint $table) {
-            $table->id();
+            $table->id('id');
+
+            $table->foreignId('post_id')
+                ->constrained('posts')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+
+            $table->foreignId('genre_id')
+                ->constrained('genres')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+
+
             $table->timestamps();
         });
     }

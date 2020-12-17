@@ -22,10 +22,11 @@
     <list default="true" id="b85cbadb-a3d0-4508-9bd6-8ab084124bdd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../cs348_Main/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../cs348_Main/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cs348_Main/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/../cs348_Main/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cs348_Main/resources/views/components/application-logo.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../cs348_Main/resources/views/components/application-logo.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cs348_Main/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../cs348_Main/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cs348_Main/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/../cs348_Main/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cs348_Main/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/../cs348_Main/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cs348_Main/database/migrations/2020_12_17_143507_create_posts_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/../cs348_Main/database/migrations/2020_12_17_143507_create_posts_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cs348_Main/database/migrations/2020_12_17_143737_create_comments_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/../cs348_Main/database/migrations/2020_12_17_143737_create_comments_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cs348_Main/database/migrations/2020_12_17_143814_create_genres_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/../cs348_Main/database/migrations/2020_12_17_143814_create_genres_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cs348_Main/database/migrations/2020_12_17_143837_create_post_genres_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/../cs348_Main/database/migrations/2020_12_17_143837_create_post_genres_table.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -201,7 +202,7 @@
       <workItem from="1606162867689" duration="2397000" />
       <workItem from="1606167455687" duration="2099000" />
       <workItem from="1606170344728" duration="39000" />
-      <workItem from="1608215547569" duration="776000" />
+      <workItem from="1608215547569" duration="2220000" />
     </task>
     <servers />
   </component>
