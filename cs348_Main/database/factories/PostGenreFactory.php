@@ -22,7 +22,8 @@ class PostGenreFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'post_id' => $this->faker->numberBetween(1, 2),
+            'genre_id' => $this->faker->numberBetween(1, 2),
         ];
     }
 }

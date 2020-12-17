@@ -22,11 +22,18 @@
     <list default="true" id="b85cbadb-a3d0-4508-9bd6-8ab084124bdd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../cs348_Main/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../cs348_Main/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cs348_Main/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/../cs348_Main/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cs348_Main/database/migrations/2020_12_17_143507_create_posts_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/../cs348_Main/database/migrations/2020_12_17_143507_create_posts_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cs348_Main/database/factories/CommentFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/../cs348_Main/database/factories/CommentFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cs348_Main/database/factories/GenreFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/../cs348_Main/database/factories/GenreFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cs348_Main/database/factories/PostFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/../cs348_Main/database/factories/PostFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cs348_Main/database/factories/PostGenreFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/../cs348_Main/database/factories/PostGenreFactory.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../cs348_Main/database/migrations/2020_12_17_143737_create_comments_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/../cs348_Main/database/migrations/2020_12_17_143737_create_comments_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cs348_Main/database/migrations/2020_12_17_143814_create_genres_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/../cs348_Main/database/migrations/2020_12_17_143814_create_genres_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cs348_Main/database/migrations/2020_12_17_143837_create_post_genres_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/../cs348_Main/database/migrations/2020_12_17_143837_create_post_genres_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cs348_Main/database/seeders/CommentTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/../cs348_Main/database/seeders/CommentTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cs348_Main/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/../cs348_Main/database/seeders/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cs348_Main/database/seeders/GenreTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/../cs348_Main/database/seeders/GenreTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cs348_Main/database/seeders/PostGenreTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/../cs348_Main/database/seeders/PostGenreTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cs348_Main/database/seeders/PostTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/../cs348_Main/database/seeders/PostTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cs348_Main/database/seeders/UserTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/../cs348_Main/database/seeders/UserTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cs348_Main/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/../cs348_Main/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -202,7 +209,7 @@
       <workItem from="1606162867689" duration="2397000" />
       <workItem from="1606167455687" duration="2099000" />
       <workItem from="1606170344728" duration="39000" />
-      <workItem from="1608215547569" duration="2220000" />
+      <workItem from="1608215547569" duration="4348000" />
     </task>
     <servers />
   </component>

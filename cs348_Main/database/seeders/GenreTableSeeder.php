@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Genre;
 use Illuminate\Database\Seeder;
 
 class GenreTableSeeder extends Seeder
@@ -13,6 +14,8 @@ class GenreTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Genre::factory()
+            ->times(5)
+            ->create();
     }
 }
