@@ -28,6 +28,8 @@ Route::get('/', function () {
     return view('auth.register');
 });
 
+Route::get('/posts', 'App\Http\Controllers\PostController@index');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');

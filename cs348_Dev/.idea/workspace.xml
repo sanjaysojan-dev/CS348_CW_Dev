@@ -22,17 +22,8 @@
     <list default="true" id="b85cbadb-a3d0-4508-9bd6-8ab084124bdd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../cs348_Main/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../cs348_Main/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cs348_Main/database/factories/CommentFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/../cs348_Main/database/factories/CommentFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cs348_Main/database/factories/GenreFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/../cs348_Main/database/factories/GenreFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cs348_Main/database/factories/PostFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/../cs348_Main/database/factories/PostFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cs348_Main/database/factories/PostGenreFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/../cs348_Main/database/factories/PostGenreFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cs348_Main/database/migrations/2020_12_17_143737_create_comments_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/../cs348_Main/database/migrations/2020_12_17_143737_create_comments_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cs348_Main/database/seeders/CommentTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/../cs348_Main/database/seeders/CommentTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cs348_Main/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/../cs348_Main/database/seeders/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cs348_Main/database/seeders/GenreTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/../cs348_Main/database/seeders/GenreTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cs348_Main/database/seeders/PostGenreTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/../cs348_Main/database/seeders/PostGenreTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cs348_Main/database/seeders/PostTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/../cs348_Main/database/seeders/PostTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cs348_Main/database/seeders/UserTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/../cs348_Main/database/seeders/UserTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cs348_Main/resources/views/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../cs348_Main/resources/views/dashboard.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cs348_Main/resources/views/layouts/navigation.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../cs348_Main/resources/views/layouts/navigation.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../cs348_Main/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/../cs348_Main/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -170,7 +161,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../cs348_Main" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="settings.php.debug.servers" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -209,7 +200,7 @@
       <workItem from="1606162867689" duration="2397000" />
       <workItem from="1606167455687" duration="2099000" />
       <workItem from="1606170344728" duration="39000" />
-      <workItem from="1608215547569" duration="4348000" />
+      <workItem from="1608215547569" duration="6165000" />
     </task>
     <servers />
   </component>
@@ -237,9 +228,10 @@
       <screen x="1920" y="0" width="1536" height="824" />
     </state>
     <state x="2419" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824/1920.0.1536.824@1920.0.1536.824" timestamp="1604585007225" />
-    <state x="2469" y="167" key="FileChooserDialogImpl" timestamp="1606170382304">
-      <screen x="1920" y="0" width="1536" height="824" />
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1608229287705">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824/0.-1080.1536.824@0.0.1536.824" timestamp="1608229287705" />
     <state x="2469" y="167" key="FileChooserDialogImpl/0.0.1536.824/1920.0.1536.824@1920.0.1536.824" timestamp="1606170382304" />
     <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1604506011556">
       <screen x="0" y="0" width="1536" height="824" />
