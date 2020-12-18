@@ -19,6 +19,10 @@
                         {{ __('Posts') }}
                     </x-nav-link>
 
+                    <x-nav-link :href="'/userPosts'" :active="request()->routeIs('posts')">
+                        {{ __('My Posts') }}
+                    </x-nav-link>
+
                 </div>
             </div>
 

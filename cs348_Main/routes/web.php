@@ -28,7 +28,11 @@ Route::get('/', function () {
     return view('auth.register');
 });
 
-Route::get('/posts', 'App\Http\Controllers\PostController@index');
+Route::get('/posts', 'App\Http\Controllers\PostController@index')
+    ->middleware(['auth'])->name('Posts');
+
+Route::get('/userPosts', 'App\Http\Controllers\PostController@showUserPosts')
+    ->middleware(['auth'])->name('userPosts');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
