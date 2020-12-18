@@ -34,6 +34,9 @@ Route::get('/allPosts', 'App\Http\Controllers\PostController@index')
 Route::get('/userPosts', 'App\Http\Controllers\PostController@showUserPosts')
     ->middleware(['auth'])->name('userPosts');
 
+Route::get('/showPost/{id}', 'App\Http\Controllers\PostController@show')
+    ->middleware(['auth'])->name('showPost');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');

@@ -12,17 +12,21 @@
                     <ul>
                         @foreach($posts as $post)
                             <div class ="flex justify-center">
+
+                                <li><a href="{{ route('showPost',['id' => $post->id])}}">{{$post->title}}</a></li>
                                 @component('components.post-card')
                                     @slot('title')
                                         {{$post->title}}
                                     @endslot
                                         {{$post->description}}
+
                                     @slot('creator')
                                             {{$post->user->name}}
                                         @endslot
                                 @endcomponent
                             </div>
                         @endforeach
+                        <div class="flex justify-center">{{$posts ->links()}}</div>
                     </ul>
                 </div>
             </div>

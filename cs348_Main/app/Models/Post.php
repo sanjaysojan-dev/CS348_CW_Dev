@@ -40,5 +40,4 @@ class Post extends Model
             'post_id','genre_id');
     }
 
-
 }
