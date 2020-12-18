@@ -12,7 +12,7 @@
                     <ul>
                         @foreach($posts as $post)
                             <div class ="flex justify-center">
-                                @component('components/post-card')
+                                @component('components.post-card')
                                     @slot('title')
                                         {{$post->title}}
                                     @endslot

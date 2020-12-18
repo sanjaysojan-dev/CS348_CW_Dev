@@ -18,7 +18,7 @@ class PostController extends Controller
     {
         $posts = Post::all();
         //dd($posts);
-        return view ('posts', compact('posts'));
+        return view ('pages.allPosts', compact('posts'));
     }
 
     public function showUserPosts()

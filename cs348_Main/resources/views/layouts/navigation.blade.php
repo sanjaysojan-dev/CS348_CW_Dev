@@ -15,12 +15,11 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    <x-nav-link :href="'/posts'" :active="request()->routeIs('posts')">
-                        {{ __('Posts') }}
-                    </x-nav-link>
-
-                    <x-nav-link :href="'/userPosts'" :active="request()->routeIs('posts')">
+                    <x-nav-link :href="route('userPosts')" :active="request()->routeIs('userPosts')">
                         {{ __('My Posts') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('allPosts')" :active="request()->routeIs('allPosts')">
+                        {{ __('Posts') }}
                     </x-nav-link>
 
                 </div>
