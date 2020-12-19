@@ -6,6 +6,7 @@ use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class PostController extends Controller
 {
@@ -16,7 +17,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::orderBy('created_at', 'asc') -> paginate(2);
+        $posts = Post::orderBy('created_at', 'asc')->paginate(2);
         //dd($posts);
         return view('pages.allPosts', compact('posts'));
     }
@@ -36,18 +37,48 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.createPost');
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
     {
-        //
+
+        $validatedData = $request->validate([
+            'title' => 'required|max:255',
+            'description' => 'required',
+            'image_upload' => 'image|nullable| max:1999'
+        ]);
+
+        //dd($request);
+
+        if ($request->hasFile('image_upload')) {
+            $fullFileName = $request->file('image_upload')->getClientOriginalName();
+
+            $filename = pathinfo($fullFileName, PATHINFO_FILENAME);
+            $fileExtension = $request->file('image_upload')->getClientOriginalExtension();
+
+            $fileNameToStore = $filename .'_' .time(). '.' . $fileExtension;
+            $path = $request->file('image_upload')->storeAs('public/images', $fileNameToStore);
+
+        } else {
+            $fileNameToStore = 'noImageUploaded.jpg';
+        }
+
+        $newPost = new Post();
+        $newPost->title = $validatedData['title'];
+        $newPost->description = $validatedData['description'];
+        $newPost->image = $fileNameToStore;
+        $newPost->user_id = Auth::user()->id;
+        $newPost->save();
+
+        session()->flash('message', 'Post was successfully created!');
+        return redirect()->route('userPosts');
     }
 
     /**

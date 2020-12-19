@@ -22,11 +22,13 @@
     <list default="true" id="b85cbadb-a3d0-4508-9bd6-8ab084124bdd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../cs348_Main/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../cs348_Main/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cs348_Main/app/Http/Controllers/PostController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cs348_Main/app/Models/Comment.php" beforeDir="false" afterPath="$PROJECT_DIR$/../cs348_Main/app/Models/Comment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cs348_Main/app/Models/Genre.php" beforeDir="false" afterPath="$PROJECT_DIR$/../cs348_Main/app/Models/Genre.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cs348_Main/app/Models/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/../cs348_Main/app/Models/Post.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cs348_Main/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/../cs348_Main/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cs348_Main/app/Http/Controllers/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../cs348_Main/app/Http/Controllers/PostController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cs348_Main/database/seeders/CommentTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/../cs348_Main/database/seeders/CommentTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cs348_Main/database/seeders/PostTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/../cs348_Main/database/seeders/PostTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cs348_Main/resources/views/components/user-post-card.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../cs348_Main/resources/views/components/user-post-card.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cs348_Main/resources/views/layouts/navigation.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../cs348_Main/resources/views/layouts/navigation.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cs348_Main/resources/views/pages/userPosts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../cs348_Main/resources/views/pages/userPosts.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cs348_Main/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/../cs348_Main/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -202,7 +204,7 @@
       <workItem from="1606162867689" duration="2397000" />
       <workItem from="1606167455687" duration="2099000" />
       <workItem from="1606170344728" duration="39000" />
-      <workItem from="1608215547569" duration="7896000" />
+      <workItem from="1608215547569" duration="8221000" />
     </task>
     <servers />
   </component>
