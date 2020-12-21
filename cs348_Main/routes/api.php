@@ -19,7 +19,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('postComments/{id}','App\Http\Controllers\CommentController@apiIndex') -> name('api.postComments.index');
+Route::post('postComment','App\Http\Controllers\CommentController@apiStore')-> name ('api.submitComment');
 
-Route::get('getCommentCreator/{id}','App\Http\Controllers\CommentController@getCommentCreator') -> name('api.commentCreator');
+
 
 

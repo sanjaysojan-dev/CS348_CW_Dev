@@ -1,5 +1,6 @@
 <!-- component -->
 <!-- comment form -->
+
 <div class="commentForm  flex mx-auto  justify-start shadow-lg ">
     <form class="w-full max-w-xl bg-white rounded-lg px-4 pt-2" >
         <div class="flex flex-wrap -mx-3 mb-6">
@@ -16,3 +17,4 @@
     </form>
 </div>
 </div>
+

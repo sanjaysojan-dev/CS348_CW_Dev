@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
 {
@@ -33,9 +35,17 @@ class CommentController extends Controller
         return $users;
     }
 
-    public function getCommentCreator ($id){
-        $user = User::find($id)->name;
-        return $user;
+    public function apiStore (Request $request){
+
+        $comment = new Comment;
+        $comment->description = $request['description'];
+        $comment->user_id = $request['user_id'];
+        $comment->post_id = $request['post_id'];
+        $comment->save();
+
+
+        return $comment;
+
     }
 
     /**
