@@ -19,17 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b85cbadb-a3d0-4508-9bd6-8ab084124bdd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cs348_Main/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../cs348_Main/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cs348_Main/app/Http/Controllers/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../cs348_Main/app/Http/Controllers/PostController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cs348_Main/database/seeders/CommentTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/../cs348_Main/database/seeders/CommentTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cs348_Main/database/seeders/PostTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/../cs348_Main/database/seeders/PostTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cs348_Main/resources/views/components/user-post-card.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../cs348_Main/resources/views/components/user-post-card.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cs348_Main/resources/views/layouts/navigation.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../cs348_Main/resources/views/layouts/navigation.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cs348_Main/resources/views/pages/userPosts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../cs348_Main/resources/views/pages/userPosts.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cs348_Main/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/../cs348_Main/routes/web.php" afterDir="false" />
-    </list>
+    <list default="true" id="b85cbadb-a3d0-4508-9bd6-8ab084124bdd" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

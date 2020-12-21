@@ -4,7 +4,7 @@
             <div class="flex items-center">
                 <h2 class="text-xl text-gray-800 font-medium mr-auto">{{$title}}</h2>
             </div>
-            <p class="text-sm text-gray-700 mt-4">
+            <p class="truncate text-sm text-gray-700 mt-4">
                {{$slot}}
             </p>
             <div class="flex items-center justify-end mt-4 top-auto">

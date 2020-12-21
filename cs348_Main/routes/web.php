@@ -37,9 +37,6 @@ Route::get('/userPosts', 'App\Http\Controllers\PostController@showUserPosts')
 Route::get('/showPost/{id}', 'App\Http\Controllers\PostController@show')
     ->middleware(['auth'])->name('showPost');
 
-Route::get('/createPost', 'App\Http\Controllers\PostController@create')
-    ->middleware(['auth'])->name('createPost');
-
 Route::post('post', 'App\Http\Controllers\PostController@store')
     ->middleware(['auth'])->name('post');
 
