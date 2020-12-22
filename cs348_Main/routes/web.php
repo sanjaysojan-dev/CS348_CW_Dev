@@ -43,6 +43,11 @@ Route::post('post', 'App\Http\Controllers\PostController@store')
 Route::delete('deletePost/{id}', 'App\Http\Controllers\PostController@destroy')
     ->middleware(['auth'])->name('deletePost');
 
+Route::get('/editPost/{id}', 'App\Http\Controllers\PostController@edit')
+    ->middleware(['auth'])->name('editPost');
+
+Route::put('savePost/{id}', 'App\Http\Controllers\PostController@update')
+    ->middleware(['auth'])->name('savePost');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

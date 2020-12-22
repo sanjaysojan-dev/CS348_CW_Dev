@@ -63,7 +63,7 @@ class PostController extends Controller
             $filename = pathinfo($fullFileName, PATHINFO_FILENAME);
             $fileExtension = $request->file('image_upload')->getClientOriginalExtension();
 
-            $fileNameToStore = $filename .'_' .time(). '.' . $fileExtension;
+            $fileNameToStore = $filename . '_' . time() . '.' . $fileExtension;
             $path = $request->file('image_upload')->storeAs('public/images', $fileNameToStore);
 
         } else {
@@ -108,7 +108,8 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Post::find($id);
+        return view('pages/editPost', ['post' => $post]);
     }
 
     /**
@@ -120,7 +121,40 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validatedData = $request->validate([
+            'title' => 'required|max:255',
+            'description' => 'required',
+            'image_upload' => 'image|nullable| max:1999'
+        ]);
+
+        //dd($request);
+
+        if ($request->hasFile('image_upload')) {
+            $fullFileName = $request->file('image_upload')->getClientOriginalName();
+            $filename = pathinfo($fullFileName, PATHINFO_FILENAME);
+            $fileExtension = $request->file('image_upload')->getClientOriginalExtension();
+            $fileNameToStore = $filename . '_' . time() . '.' . $fileExtension;
+
+        }
+
+        $updatedPost = Post::find($id);
+        $updatedPost->title = $validatedData['title'];
+        $updatedPost->description = $validatedData['description'];
+        if ($request->hasFile('image_upload')) {
+
+            if ($updatedPost->image != 'noImageUploaded.jpg') {
+                unlink('storage/images/' . $updatedPost->image);
+            }
+
+            $updatedPost->image =  $fileNameToStore;
+            $request->file('image_upload')->storeAs('public/images', $fileNameToStore);
+        }
+
+        $updatedPost->user_id = Auth::user()->id;
+        $updatedPost->save();
+
+        session()->flash('message', 'Post was successfully created!');
+        return redirect()->route('userPosts');
     }
 
     /**
@@ -138,13 +172,16 @@ class PostController extends Controller
     {
         $post = Post::find($id);
 
-        if (Auth::user()->id != $post->user_id){
+        if (Auth::user()->id != $post->user_id) {
             session()->flash('message', "You don't have authentication");
             return redirect()->route('userPosts');
         }
 
         //Storage::delete('storage/images/'.$post->image);
-        unlink('storage/images/'.$post->image);
+
+        if ($post->image != 'noImageUploaded.jpg') {
+            unlink('storage/images/' . $post->image);
+        }
         $post->delete();
         session()->flash('message', 'Post was Deleted!');
         return redirect()->route('userPosts');

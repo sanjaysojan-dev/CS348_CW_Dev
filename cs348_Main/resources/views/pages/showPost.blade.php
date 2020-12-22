@@ -4,21 +4,22 @@
         #container {
             display: table;
             width: 100%;
-            background: #ccc;
+            background:#7a7575;
         }
 
         #container > div {
             display: table-cell;
             padding: 1em;
-            width: 50%;
+            word-wrap: break-word;
+            height: auto;
+            width: 60%;
         }
 
         #container > div:nth-child(2) {
-            width: 50%;
-            background: #ccc;
+            width: 40%;
+            background: #7a7575;
         }
     </style>
-
 
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -26,22 +27,37 @@
         </h2>
     </x-slot>
 
-
     <div class="py-12">
         <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
+                <div class="p-6 bg-gray-400 border-b border-gray-200">
+
                     <div id="container">
-                        <div>
-                            <h2 class="text-l text-gray-800 font-medium mr-auto">{{$post->description}}</h2>
+                        <div class="relative flex mx-auto  justify-center ">
+                            <p
+                                class="absolute inset-10 text-l text-gray-800 font-medium mr-auto">{{$post->description}}</p>
+                            <br style="clear: both">
+                        </div>
+
+                        <div class=" flex mx-auto  justify-center">
+                            @if($post->image == "noImageUploaded.jpg")
+                                <img class="h-80 w-full object-cover shadow rounded pb-5/6"
+                                     src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=925&q=80"
+                                     alt="bag">
+                            @else
+                                <img class="h-80 w-full object-cover shadow rounded pb-5/6"
+                                     src={{"/storage/images/$post->image"}} alt="bag">
+                            @endif
+                            <br style="clear: both">
                         </div>
                     </div>
-                    <div id="test">
+
+                    <div id="commentSection">
                         <div>
-                            <div class="commentForm  flex mx-auto  justify-start shadow-lg ">
+                            <div class="commentForm  flex mx-auto  justify-center shadow-lg ">
                                 <form class="w-full max-w-xl bg-white rounded-lg px-4 pt-2">
                                     <div class="flex flex-wrap -mx-3 mb-6">
                                         <h2 class="px-4 pt-3 pb-2 text-gray-800 text-lg">Add a new comment</h2>
@@ -65,27 +81,25 @@
 
                         <div v-for="comment in comments">
                             <div id="creator">
-
                                 @component('components.comment-card')
                                     @slot('commentCreator')
                                         @{{comment.user_id}}
                                     @endslot
                                     @{{comment.description}}
                                 @endcomponent
-
                                 <div>
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>
         </div>
 
-
         <script>
             var app = new Vue({
-                el: '#test',
+                el: '#commentSection',
                 data: {
                     comments: [],
                     commentDescription: '',
@@ -115,7 +129,6 @@
                     })
                 },
             });
-
         </script>
     </div>
     </div>
