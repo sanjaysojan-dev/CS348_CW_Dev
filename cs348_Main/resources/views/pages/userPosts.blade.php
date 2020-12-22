@@ -36,6 +36,16 @@
                                         {{$post->user->name}}
                                     @endslot
                                 @endcomponent
+                                    <div class="flex items-center space-x-4 justify-end mt-4 top-auto"  >
+                                        <button class=" bg-blue-600 text-gray-200 px-2 py-2 rounded-md ">Edit</button>
+                                        <form action="{{route('deletePost',['id'=>$post->id])}}" method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class=" bg-red-200 text-gray-600 px-2 py-2 rounded-md mr-2" type="submit">Delete</button>
+                                        </form>
+
+                                    </div>
+
                             </div>
                         @endforeach
                     </ul>

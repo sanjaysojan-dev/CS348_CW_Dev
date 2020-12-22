@@ -40,6 +40,9 @@ Route::get('/showPost/{id}', 'App\Http\Controllers\PostController@show')
 Route::post('post', 'App\Http\Controllers\PostController@store')
     ->middleware(['auth'])->name('post');
 
+Route::delete('deletePost/{id}', 'App\Http\Controllers\PostController@destroy')
+    ->middleware(['auth'])->name('deletePost');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

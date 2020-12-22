@@ -7,10 +7,6 @@
             <p class="truncate text-sm text-gray-700 mt-4">
                {{$slot}}
             </p>
-            <div class="flex items-center justify-end mt-4 top-auto">
-                <button class=" bg-red-200 text-gray-600 px-2 py-2 rounded-md mr-2">Delete</button>
-                <button class=" bg-blue-600 text-gray-200 px-2 py-2 rounded-md ">Edit</button>
-            </div>
             <div>
                 <h2  class="text-xl text-gray-800 font-medium mr-auto">Created By: {{$creator}}</h2>
             </div>

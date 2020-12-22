@@ -6,7 +6,7 @@ use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Carbon\Carbon;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -129,8 +129,24 @@ class PostController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
+
+    /**
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function destroy($id)
     {
-        //
+        $post = Post::find($id);
+
+        if (Auth::user()->id != $post->user_id){
+            session()->flash('message', "You don't have authentication");
+            return redirect()->route('userPosts');
+        }
+
+        //Storage::delete('storage/images/'.$post->image);
+        unlink('storage/images/'.$post->image);
+        $post->delete();
+        session()->flash('message', 'Post was Deleted!');
+        return redirect()->route('userPosts');
     }
 }
