@@ -7,7 +7,9 @@
                     <img alt="avatar" width="48" height="48" class="rounded-full w-10 h-10 mr-4 shadow-lg mb-4" src="https://cdn1.iconfinder.com/data/icons/technology-devices-2/100/Profile-512.png">
                     <h3 class="text-purple-600 font-semibold text-lg text-center md:text-left ">Comment By {{$commentCreator}}</h3>
                 </div>
-                <p style="width: 90%" class="text-gray-600 text-lg text-center md:text-left ">{{$slot}}</p>
+                <p style="width: 90%" class="text-gray-600 text-lg text-center md:text-left ">{{$description}}</p>
+
+                <h3 class="text-purple-600 font-semibold text-lg text-center md:text-left ">Posted On {{$commentDate}}</h3>
             </div>
         </div>
     </section>

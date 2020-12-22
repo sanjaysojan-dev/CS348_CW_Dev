@@ -21,7 +21,8 @@ class CommentController extends Controller
 
     public function apiIndex($id)
     {
-        $comments = Post::findOrFail($id)->comments;
+
+        $comments = Comment::with(['user'])->where('post_id',$id)->get();
         return $comments;
     }
 
@@ -42,6 +43,8 @@ class CommentController extends Controller
         $comment->user_id = $request['user_id'];
         $comment->post_id = $request['post_id'];
         $comment->save();
+
+        $newComment = Comment::with(['user'])->where('id',$comment->id)->get();
 
         return $comment;
     }

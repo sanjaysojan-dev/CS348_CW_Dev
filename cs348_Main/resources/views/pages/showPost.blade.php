@@ -4,7 +4,7 @@
         #container {
             display: table;
             width: 100%;
-            background:#7a7575;
+            background: #7a7575;
         }
 
         #container > div {
@@ -83,9 +83,14 @@
                             <div id="creator">
                                 @component('components.comment-card')
                                     @slot('commentCreator')
-                                        @{{comment.user_id}}
+                                        @{{comment.user.name}}
                                     @endslot
-                                    @{{comment.description}}
+                                    @slot('description')
+                                        @{{comment.description}}
+                                    @endslot
+                                    @slot('commentDate')
+                                        @{{comment.created_at}}
+                                    @endslot
                                 @endcomponent
                                 <div>
                                 </div>
