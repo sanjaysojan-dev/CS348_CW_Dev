@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Comment;
 use App\Models\Post;
+use App\Models\User;
+use App\Notifications\NotificationController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -16,37 +18,32 @@ class CommentController extends Controller
      */
     public function index()
     {
-        //
+        $userComments = User::find(Auth::user()->id)->comments;
+        $userComments->load('post');
+        return view ('pages.allUserComments', compact('userComments'));
     }
 
     public function apiIndex($id)
     {
-
         $comments = Comment::with(['user'])->where('post_id',$id)->get();
         return $comments;
     }
 
-    public function apiGetCommentCreator($id){
-        $comments = Post::findOrFail($id)->comments;
-
-        $users = array();
-        foreach ($comments as $comment) {
-            array_push($users,$comment->user);
-        }
-        return $users;
-    }
-
     public function apiStore (Request $request){
 
+        $validatedData = $request->validate([
+            'description' => 'required',
+        ]);
+
         $comment = new Comment;
-        $comment->description = $request['description'];
+        $comment->description = $validatedData['description'];
         $comment->user_id = $request['user_id'];
         $comment->post_id = $request['post_id'];
         $comment->save();
 
         $newComment = Comment::with(['user'])->where('id',$comment->id)->get();
 
-        return $comment;
+        return $newComment;
     }
 
     /**
@@ -89,7 +86,8 @@ class CommentController extends Controller
      */
     public function edit($id)
     {
-        //
+        $comment = Comment::find($id);
+        return view('pages/editComment', compact('comment'));
     }
 
     /**
@@ -101,7 +99,16 @@ class CommentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validatedData = $request->validate([
+            'description' => 'required',
+        ]);
+
+        $comment = Comment::find($id);
+        $comment->description = $validatedData['description'];
+        $comment->save();
+
+        session()->flash('message', 'Comment was successfully updated!');
+        return redirect()->route('allComments');
     }
 
     /**
@@ -112,6 +119,15 @@ class CommentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $comment = Comment::find($id);
+
+        if (Auth::user()->id != $comment->user_id) {
+            session()->flash('message', "You don't have authentication");
+            return redirect()->route('userPosts');
+        }
+
+        $comment->delete();
+        session()->flash('message', 'Post was Deleted!');
+        return redirect()->route('allComments');
     }
 }

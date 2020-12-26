@@ -43,11 +43,27 @@ Route::post('post', 'App\Http\Controllers\PostController@store')
 Route::delete('deletePost/{id}', 'App\Http\Controllers\PostController@destroy')
     ->middleware(['auth'])->name('deletePost');
 
+
+
 Route::get('/editPost/{id}', 'App\Http\Controllers\PostController@edit')
     ->middleware(['auth'])->name('editPost');
 
 Route::put('savePost/{id}', 'App\Http\Controllers\PostController@update')
     ->middleware(['auth'])->name('savePost');
+
+Route::get('/allComments', 'App\Http\Controllers\CommentController@index')
+    ->middleware(['auth'])->name('allComments');
+
+
+
+Route::delete('deleteComment/{id}', 'App\Http\Controllers\CommentController@destroy')
+    ->middleware(['auth'])->name('deleteComment');
+
+Route::get('editComment/{id}', 'App\Http\Controllers\CommentController@edit')
+    ->middleware(['auth'])->name('editComment');
+
+Route::put('saveComment/{id}', 'App\Http\Controllers\CommentController@update')
+    ->middleware(['auth'])->name('saveComment');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

@@ -46,12 +46,9 @@
                                     <img class="h-80 w-full object-cover shadow-xl rounded pb-5/6"
                                          src="https://images.unsplash.com/photo-1578671815798-7b9b0ab22d73?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
                                          alt="bag">
-
                                 <br style="clear: both">
                         </div>
                         </div>
-
-
                     <ul>
                         @foreach($posts as $post)
                             <div>

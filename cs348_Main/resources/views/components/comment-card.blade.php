@@ -9,7 +9,7 @@
                 </div>
                 <p style="width: 90%" class="text-gray-600 text-lg text-center md:text-left ">{{$description}}</p>
 
-                <h3 class="text-purple-600 font-semibold text-lg text-center md:text-left ">Posted On {{$commentDate}}</h3>
+                <h3 class="text-purple-600 font-semibold text-l text-center md:text-left ">Posted On {{$commentDate}}</h3>
             </div>
         </div>
     </section>
