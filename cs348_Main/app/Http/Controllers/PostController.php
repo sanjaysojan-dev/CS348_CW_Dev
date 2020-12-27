@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Genre;
 use App\Models\Post;
+use App\Models\PostGenre;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -25,8 +27,9 @@ class PostController extends Controller
     public function showUserPosts()
     {
         $posts = User::find(Auth::user()->id)->posts;
+        $genres = Genre::all();
         //dd($posts);
-        return view('pages.userPosts', compact('posts'));
+        return view('pages.userPosts', compact('posts','genres'));
     }
 
 
@@ -57,6 +60,7 @@ class PostController extends Controller
 
         //dd($request);
 
+
         if ($request->hasFile('image_upload')) {
             $fullFileName = $request->file('image_upload')->getClientOriginalName();
 
@@ -76,6 +80,19 @@ class PostController extends Controller
         $newPost->image = $fileNameToStore;
         $newPost->user_id = Auth::user()->id;
         $newPost->save();
+
+        $genres = Genre::all();
+           foreach ($genres as $genre){
+            if ($request->input($genre->title)!= null){
+                $postGenre = new PostGenre();
+                $postGenre->post_id = $newPost->id;
+                $postGenre->genre_id = $genre->id;
+                $postGenre->save();
+            }
+        }
+
+
+
 
         session()->flash('message', 'Post was successfully created!');
         return redirect()->route('userPosts');

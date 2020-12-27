@@ -14,6 +14,12 @@
             <textarea class="bg-gray-100 rounded border border-gray-400 leading-normal resize-none w-full h-20 py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white" name="description"
                       placeholder='Type Your Review' required></textarea>
         </div>
+
+        <div>
+            {{$slot}}
+        </div>
+
+
         <p class="mt-4 text-gray-800 font-medium">Upload Post Image</p>
 
         <div class="mt-2">
