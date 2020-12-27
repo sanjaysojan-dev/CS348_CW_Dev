@@ -25,6 +25,9 @@
                     <x-nav-link :href="route('allComments')" :active="request()->routeIs('allComments')">
                         {{ __('My Comments') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('genres')" :active="request()->routeIs('genres')">
+                        {{ __('Movie Genres') }}
+                    </x-nav-link>
                 </div>
             </div>
 

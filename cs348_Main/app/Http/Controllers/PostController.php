@@ -17,7 +17,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::orderBy('created_at', 'asc')->paginate(2);
+        $posts = Post::orderBy('created_at', 'desc')->paginate(2);
         //dd($posts);
         return view('pages.allPosts', compact('posts'));
     }

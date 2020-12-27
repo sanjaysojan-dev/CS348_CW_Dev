@@ -28,13 +28,13 @@ Route::get('/', function () {
     return view('auth.register');
 });
 
-Route::get('/allPosts', 'App\Http\Controllers\PostController@index')
+Route::get('allPosts', 'App\Http\Controllers\PostController@index')
     ->middleware(['auth'])->name('allPosts');
 
-Route::get('/userPosts', 'App\Http\Controllers\PostController@showUserPosts')
+Route::get('userPosts', 'App\Http\Controllers\PostController@showUserPosts')
     ->middleware(['auth'])->name('userPosts');
 
-Route::get('/showPost/{id}', 'App\Http\Controllers\PostController@show')
+Route::get('showPost/{id}', 'App\Http\Controllers\PostController@show')
     ->middleware(['auth'])->name('showPost');
 
 Route::post('post', 'App\Http\Controllers\PostController@store')
@@ -45,13 +45,13 @@ Route::delete('deletePost/{id}', 'App\Http\Controllers\PostController@destroy')
 
 
 
-Route::get('/editPost/{id}', 'App\Http\Controllers\PostController@edit')
+Route::get('editPost/{id}', 'App\Http\Controllers\PostController@edit')
     ->middleware(['auth'])->name('editPost');
 
 Route::put('savePost/{id}', 'App\Http\Controllers\PostController@update')
     ->middleware(['auth'])->name('savePost');
 
-Route::get('/allComments', 'App\Http\Controllers\CommentController@index')
+Route::get('allComments', 'App\Http\Controllers\CommentController@index')
     ->middleware(['auth'])->name('allComments');
 
 
@@ -64,6 +64,18 @@ Route::get('editComment/{id}', 'App\Http\Controllers\CommentController@edit')
 
 Route::put('saveComment/{id}', 'App\Http\Controllers\CommentController@update')
     ->middleware(['auth'])->name('saveComment');
+
+
+
+
+Route::get('genres', 'App\Http\Controllers\GenreController@index')
+    ->middleware(['auth'])->name('genres');
+
+Route::get('showGenrePost/{id}', 'App\Http\Controllers\GenreController@show')
+    ->middleware(['auth'])->name('showGenrePost');
+
+
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
