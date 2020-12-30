@@ -25,7 +25,6 @@ class PostFactory extends Factory
         return [
             'title' => $this->faker->unique()->name,
             'description' => $this->faker->paragraph,
-            'image' => 'noImageUploaded.jpg',
             'user_id' => User::inRandomOrder()->first()->id,
         ];
     }

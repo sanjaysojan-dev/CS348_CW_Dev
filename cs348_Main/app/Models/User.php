@@ -59,11 +59,5 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Comment');
     }
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\MorphOne
-     */
-    public function image()
-    {
-        return $this->morphOne(Image::class, 'imageable');
-    }
+
 }

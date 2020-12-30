@@ -17,7 +17,7 @@
                                         class="h-28 w-28 object-cover rounded-full">
                                 @else
                                     <img
-                                        src="/storage/images/{{$profile->image}}"
+                                        src="/storage/images/{{$profile->image->image}}"
                                         class="h-28 w-28 object-cover rounded-full">
                                 @endif
                             @endforeach
@@ -60,11 +60,8 @@
                             @slot('interests')
                             @endslot
                             @slot('reasoning')
-
                             @endslot
                         @endif
-
-
                     @endcomponent
                 </div>
             </div>

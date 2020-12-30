@@ -2,18 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\User;
-use App\Models\UserFilmProfile;
+use App\Models\Image;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class UserFilmProfileFactory extends Factory
+class ImageFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = UserFilmProfile::class;
+    protected $model = Image::class;
 
     /**
      * Define the model's default state.
@@ -23,9 +22,7 @@ class UserFilmProfileFactory extends Factory
     public function definition()
     {
         return [
-            'favourite_film' => $this->faker->unique()->company,
-            'film_reasoning' => $this->faker->paragraph,
-            'interests' => $this->faker->paragraph,
+            'image' => 'noImageUploaded.jpg'
         ];
     }
 }

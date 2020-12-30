@@ -40,7 +40,7 @@
                             <br style="clear: both">
                         </div>
                         <div class=" flex mx-auto  justify-center">
-                            @if($post->image == "noImageUploaded.jpg")
+                            @if($post->image->image == "noImageUploaded.jpg")
                                 <img class="h-80 w-full object-cover shadow rounded pb-5/6"
                                      src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=925&q=80"
                                      alt="bag">

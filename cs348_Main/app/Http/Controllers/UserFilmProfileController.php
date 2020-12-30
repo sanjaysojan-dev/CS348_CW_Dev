@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Image;
 use App\Models\UserFilmProfile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -92,36 +93,34 @@ class UserFilmProfileController extends Controller
             $userFilmProfile->film_reasoning = $request['reasoning'];
 
             if ($request->hasFile('image_upload')) {
-
-                if ($userFilmProfile->image != 'noImageUploaded.jpg' && ($userFilmProfile->image!=null)) {
-                    unlink('storage/images/' . $userFilmProfile->image);
+                $image =  Image::where('imageable_type', 'App\Models\UserFilmProfile')->where('imageable_id', $userFilmProfile->id)->exists();
+                //dd($image);
+                if ($image){
+                    unlink('storage/images/' . $userFilmProfile->image->image);
+                    $image->delete();
                 }
 
-                $userFilmProfile->image = $fileNameToStore;
+                $newImage = new Image(['image' => $fileNameToStore]);
+                $userFilmProfile->image()->save($newImage);
                 $request->file('image_upload')->storeAs('public/images', $fileNameToStore);
             }
 
             $userFilmProfile->save();
 
         } else {
-            $userFilmProfile = new UserFilmProfile();
-            $userFilmProfile->favourite_film = $request['favFilm'];
-            $userFilmProfile->interests = $request['interests'];
-            $userFilmProfile->film_reasoning = $request['reasoning'];
-            $userFilmProfile->user_id = Auth::user()->id;
+            $filmProfile = new UserFilmProfile();
+            $filmProfile->favourite_film = $request['favFilm'];
+            $filmProfile->interests = $request['interests'];
+            $filmProfile->film_reasoning = $request['reasoning'];
+            $filmProfile->user_id = Auth::user()->id;
+            $filmProfile->save();
 
             if ($request->hasFile('image_upload')) {
 
-                if ($userFilmProfile->image != 'noImageUploaded.jpg' && ($userFilmProfile->image!=null)) {
-                    unlink('storage/images/' . $userFilmProfile->image);
-                }
-
-                $userFilmProfile->image = $fileNameToStore;
+                $image = new Image(['image' => $fileNameToStore]);
+                $filmProfile->image()->save($image);
                 $request->file('image_upload')->storeAs('public/images', $fileNameToStore);
             }
-
-
-            $userFilmProfile->save();
         }
 
         return redirect()->route('dashboard');

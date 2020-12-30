@@ -75,10 +75,7 @@ class PostController extends Controller
             $fileNameToStore = 'noImageUploaded.jpg';
         }
 
-
-
         $image = new Image(['image' => $fileNameToStore]);
-
 
         $newPost = new Post();
         $newPost->title = $validatedData['title'];

@@ -18,4 +18,12 @@ class UserFilmProfile extends Model
     {
         return $this->belongsTo('App\Models\User', 'user_id');
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\MorphOne
+     */
+    public function image()
+    {
+        return $this->morphOne(Image::class, 'imageable');
+    }
 }

@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Image;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -19,7 +20,8 @@ class DatabaseSeeder extends Seeder
             CommentTableSeeder::class,
             GenreTableSeeder::class,
             PostGenreTableSeeder::class,
-            UserFilmProfileTableSeeder::class
+            UserFilmProfileTableSeeder::class,
+            ImageTableSeeder::class
         ]);
 
     }
