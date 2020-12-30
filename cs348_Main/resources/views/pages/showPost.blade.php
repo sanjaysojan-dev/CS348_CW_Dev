@@ -46,7 +46,7 @@
                                      alt="bag">
                             @else
                                 <img class="h-80 w-full object-cover shadow rounded pb-5/6"
-                                     src={{"/storage/images/$post->image"}} alt="bag">
+                                     src={{"/storage/images/".$post->image->image}} alt="bag">
                             @endif
                             <br style="clear: both">
                         </div>
