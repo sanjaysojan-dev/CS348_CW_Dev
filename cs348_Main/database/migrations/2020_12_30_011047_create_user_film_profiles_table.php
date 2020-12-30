@@ -17,7 +17,7 @@ class CreateUserFilmProfilesTable extends Migration
             $table->string('image')->nullable();
             $table->string('favourite_film')->nullable();
             $table->longText('film_reasoning')->nullable();
-            $table->longText('profile_description')->nullable();
+            $table->longText('interests')->nullable();
             $table->timestamps();
 
             $table->foreignId('user_id')

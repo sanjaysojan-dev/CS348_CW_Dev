@@ -25,7 +25,7 @@ class UserFilmProfileFactory extends Factory
         return [
             'favourite_film' => $this->faker->unique()->company,
             'film_reasoning' => $this->faker->paragraph,
-            'profile_description' => $this->faker->paragraph,
+            'interests' => $this->faker->paragraph,
             'image' => 'noImageUploaded.jpg',
         ];
     }

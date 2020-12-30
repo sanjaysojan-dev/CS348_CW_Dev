@@ -74,11 +74,14 @@ Route::get('genres', 'App\Http\Controllers\GenreController@index')
 Route::get('showGenrePost/{id}', 'App\Http\Controllers\GenreController@show')
     ->middleware(['auth'])->name('showGenrePost');
 
+Route::get('/dashboard', 'App\Http\Controllers\UserFilmProfileController@index')
+    ->middleware(['auth'])->name('dashboard');
 
-
-
+/**
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+**/
+
 
 require __DIR__.'/auth.php';
