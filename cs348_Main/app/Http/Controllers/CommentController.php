@@ -6,6 +6,7 @@ use App\Models\Comment;
 use App\Models\Post;
 use App\Models\User;
 use App\Notifications\NotificationController;
+use App\Notifications\PostNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -42,6 +43,13 @@ class CommentController extends Controller
         $comment->save();
 
         $newComment = Comment::with(['user'])->where('id',$comment->id)->get();
+
+
+        $post = Post::find($request['post_id']);
+        $commentAuthor = User::find($comment->user_id);
+        $user = User::find($post->user->id);
+        $user->notify(new PostNotification('New comment by '.$commentAuthor->name." on Post ".$post->title));
+
 
         return $newComment;
     }
