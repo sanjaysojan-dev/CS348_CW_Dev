@@ -151,7 +151,6 @@ class PostController extends Controller
             $filename = pathinfo($fullFileName, PATHINFO_FILENAME);
             $fileExtension = $request->file('image_upload')->getClientOriginalExtension();
             $fileNameToStore = $filename . '_' . time() . '.' . $fileExtension;
-
         }
 
         $updatedPost = Post::find($id);

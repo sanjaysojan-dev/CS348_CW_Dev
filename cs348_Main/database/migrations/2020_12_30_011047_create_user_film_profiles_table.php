@@ -14,6 +14,7 @@ class CreateUserFilmProfilesTable extends Migration
     public function up()
     {
         Schema::create('user_film_profiles', function (Blueprint $table) {
+            $table->id('id');
             $table->string('image')->nullable();
             $table->string('favourite_film')->nullable();
             $table->longText('film_reasoning')->nullable();
