@@ -18,7 +18,8 @@ class DatabaseSeeder extends Seeder
             PostTableSeeder::class,
             CommentTableSeeder::class,
             GenreTableSeeder::class,
-            PostGenreTableSeeder::class
+            PostGenreTableSeeder::class,
+            UserFilmProfileTableSeeder::class
         ]);
 
     }
