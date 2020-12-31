@@ -44,16 +44,15 @@ Route::delete('deletePost/{id}', 'App\Http\Controllers\PostController@destroy')
     ->middleware(['auth'])->name('deletePost');
 
 
-
 Route::get('editPost/{id}', 'App\Http\Controllers\PostController@edit')
     ->middleware(['auth'])->name('editPost');
 
 Route::put('savePost/{id}', 'App\Http\Controllers\PostController@update')
     ->middleware(['auth'])->name('savePost');
 
+
 Route::get('allComments', 'App\Http\Controllers\CommentController@index')
     ->middleware(['auth'])->name('allComments');
-
 
 
 Route::delete('deleteComment/{id}', 'App\Http\Controllers\CommentController@destroy')

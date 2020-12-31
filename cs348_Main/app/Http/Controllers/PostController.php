@@ -13,10 +13,10 @@ use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
+
     /**
      * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function index()
     {
@@ -25,79 +25,19 @@ class PostController extends Controller
         return view('pages.allPosts', compact('posts'));
     }
 
+
+    /**
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function showUserPosts()
     {
         $posts = User::find(Auth::user()->id)->posts;
         $genres = Genre::all();
         //dd($posts);
-        return view('pages.userPosts', compact('posts','genres'));
+        return view('pages.userPosts', compact('posts', 'genres'));
     }
 
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        return view('pages.createPost');
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function store(Request $request)
-    {
-
-        $validatedData = $request->validate([
-            'title' => 'required|max:255',
-            'description' => 'required',
-            'image_upload' => 'image|nullable| max:1999'
-        ]);
-
-        //dd($request);
-
-
-        if ($request->hasFile('image_upload')) {
-            $fullFileName = $request->file('image_upload')->getClientOriginalName();
-
-            $filename = pathinfo($fullFileName, PATHINFO_FILENAME);
-            $fileExtension = $request->file('image_upload')->getClientOriginalExtension();
-
-            $fileNameToStore = $filename . '_' . time() . '.' . $fileExtension;
-            $path = $request->file('image_upload')->storeAs('public/images', $fileNameToStore);
-
-        } else {
-            $fileNameToStore = 'noImageUploaded.jpg';
-        }
-
-        $image = new Image(['image' => $fileNameToStore]);
-
-        $newPost = new Post();
-        $newPost->title = $validatedData['title'];
-        $newPost->description = $validatedData['description'];
-        //$newPost->image = $fileNameToStore;
-        $newPost->user_id = Auth::user()->id;
-        $newPost->save();
-        $newPost->image()->save($image);
-
-        $genres = Genre::all();
-           foreach ($genres as $genre){
-            if ($request->input($genre->title)!= null){
-                $postGenre = new PostGenre();
-                $postGenre->post_id = $newPost->id;
-                $postGenre->genre_id = $genre->id;
-                $postGenre->save();
-            }
-        }
-
-        session()->flash('message', 'Post was successfully created!');
-        return redirect()->route('userPosts');
-    }
 
     /**
      * Display the specified resource.
@@ -111,11 +51,67 @@ class PostController extends Controller
         return view('pages/showPost', ['post' => $post]);
     }
 
-    public function showAllUserPosts()
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function store(Request $request)
     {
-        $userPosts = User::find(Auth::user()->id)->posts();
-        //dd(User::find(Auth::user()->id));
-        return view('pages/userPosts', ['posts' => $userPosts]);
+        $user = Auth::user();
+        //dd($user->can('create', Post::class));
+        if ($user->can('create', Post::class)) {
+
+            $validatedData = $request->validate([
+                'title' => 'required|max:255',
+                'description' => 'required',
+                'image_upload' => 'image|nullable| max:1999'
+            ]);
+
+            //dd($request);
+
+
+            if ($request->hasFile('image_upload')) {
+                $fullFileName = $request->file('image_upload')->getClientOriginalName();
+
+                $filename = pathinfo($fullFileName, PATHINFO_FILENAME);
+                $fileExtension = $request->file('image_upload')->getClientOriginalExtension();
+
+                $fileNameToStore = $filename . '_' . time() . '.' . $fileExtension;
+                $path = $request->file('image_upload')->storeAs('public/images', $fileNameToStore);
+
+            } else {
+                $fileNameToStore = 'noImageUploaded.jpg';
+            }
+
+            $image = new Image(['image' => $fileNameToStore]);
+
+            $newPost = new Post();
+            $newPost->title = $validatedData['title'];
+            $newPost->description = $validatedData['description'];
+            //$newPost->image = $fileNameToStore;
+            $newPost->user_id = Auth::user()->id;
+            $newPost->save();
+            $newPost->image()->save($image);
+
+            $genres = Genre::all();
+            foreach ($genres as $genre) {
+                if ($request->input($genre->title) != null) {
+                    $postGenre = new PostGenre();
+                    $postGenre->post_id = $newPost->id;
+                    $postGenre->genre_id = $genre->id;
+                    $postGenre->save();
+                }
+            }
+
+            session()->flash('message', 'Post was successfully created!');
+            return redirect()->route('userPosts');
+        } else {
+            return redirect()->route('userPosts');
+        }
+
     }
 
     /**
@@ -126,8 +122,13 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        $post = Post::find($id);
-        return view('pages/editPost', ['post' => $post]);
+        $user = Auth::user();
+        $post = Post::findOrFail($id);
+        if ($user->can('update', $post)) {
+            return view('pages/editPost', ['post' => $post]);
+        } else {
+            return redirect()->route('userPosts');
+        }
     }
 
     /**
@@ -139,50 +140,52 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $validatedData = $request->validate([
-            'title' => 'required|max:255',
-            'description' => 'required',
-            'image_upload' => 'image|nullable| max:1999'
-        ]);
 
-        if ($request->hasFile('image_upload')) {
-            $fullFileName = $request->file('image_upload')->getClientOriginalName();
-            $filename = pathinfo($fullFileName, PATHINFO_FILENAME);
-            $fileExtension = $request->file('image_upload')->getClientOriginalExtension();
-            $fileNameToStore = $filename . '_' . time() . '.' . $fileExtension;
-        }
-
+        $user = Auth::user();
         $updatedPost = Post::find($id);
-        $updatedPost->title = $validatedData['title'];
-        $updatedPost->description = $validatedData['description'];
 
+        if ($user->can('update', $updatedPost)) {
+            $validatedData = $request->validate([
+                'title' => 'required|max:255',
+                'description' => 'required',
+                'image_upload' => 'image|nullable| max:1999'
+            ]);
 
-        if ($request->hasFile('image_upload')) {
-
-            if ($updatedPost->image->image != 'noImageUploaded.jpg') {
-                unlink('storage/images/' . $updatedPost->image->image);
+            if ($request->hasFile('image_upload')) {
+                $fullFileName = $request->file('image_upload')->getClientOriginalName();
+                $filename = pathinfo($fullFileName, PATHINFO_FILENAME);
+                $fileExtension = $request->file('image_upload')->getClientOriginalExtension();
+                $fileNameToStore = $filename . '_' . time() . '.' . $fileExtension;
             }
 
-            //$updatedPost->image =  $fileNameToStore;
-            Image::where('imageable_type', 'App\Models\Post')->where('imageable_id', $updatedPost->id)->delete();
-            $image = new Image(['image' => $fileNameToStore]);
-            $updatedPost->image()->save($image);
-            $request->file('image_upload')->storeAs('public/images', $fileNameToStore);
+
+            $updatedPost->title = $validatedData['title'];
+            $updatedPost->description = $validatedData['description'];
+
+
+            if ($request->hasFile('image_upload')) {
+
+                if ($updatedPost->image->image != 'noImageUploaded.jpg') {
+                    unlink('storage/images/' . $updatedPost->image->image);
+                }
+
+                //$updatedPost->image =  $fileNameToStore;
+                Image::where('imageable_type', 'App\Models\Post')->where('imageable_id', $updatedPost->id)->delete();
+                $image = new Image(['image' => $fileNameToStore]);
+                $updatedPost->image()->save($image);
+                $request->file('image_upload')->storeAs('public/images', $fileNameToStore);
+            }
+
+            $updatedPost->user_id = Auth::user()->id;
+            $updatedPost->save();
+
+            session()->flash('message', 'Post was successfully created!');
+            return redirect()->route('userPosts');
+        } else {
+            return redirect()->route('userPosts');
         }
-
-        $updatedPost->user_id = Auth::user()->id;
-        $updatedPost->save();
-
-        session()->flash('message', 'Post was successfully created!');
-        return redirect()->route('userPosts');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
 
     /**
      * @param $id
@@ -191,21 +194,21 @@ class PostController extends Controller
     public function destroy($id)
     {
         $post = Post::find($id);
+        $user = Auth::user();
 
-        if (Auth::user()->id != $post->user_id) {
+        if ($user->can('delete', $post)) {
+            //Storage::delete('storage/images/'.$post->image);
+            if ($post->image->image != 'noImageUploaded.jpg') {
+                unlink('storage/images/' . $post->image->image);
+            }
+
+            Image::where('imageable_type', 'App\Models\Post')->where('imageable_id', $post->id)->delete();
+            $post->delete();
+            session()->flash('message', 'Post was Deleted!');
+            return redirect()->route('userPosts');
+        } else {
             session()->flash('message', "You don't have authentication");
             return redirect()->route('userPosts');
         }
-
-        //Storage::delete('storage/images/'.$post->image);
-
-        if ($post->image->image != 'noImageUploaded.jpg') {
-            unlink('storage/images/' . $post->image->image);
-        }
-
-        Image::where('imageable_type', 'App\Models\Post')->where('imageable_id', $post->id)->delete();
-        $post->delete();
-        session()->flash('message', 'Post was Deleted!');
-        return redirect()->route('userPosts');
     }
 }
