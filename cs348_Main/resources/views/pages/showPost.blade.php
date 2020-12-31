@@ -54,8 +54,8 @@
 
                     <div id="commentSection">
                         <div>
-                            <div class="commentForm  flex mx-auto  justify-center shadow-lg ">
-                                <form class="w-full max-w-xl bg-white rounded-lg px-4 pt-2">
+                            <div class="w-full  flex mx-auto  justify-center shadow-lg ">
+                                <form class="w-full  bg-white rounded-lg px-4 pt-2">
                                     <div class="flex flex-wrap -mx-3 mb-6">
                                         <h2 class="px-4 pt-3 pb-2 text-gray-800 text-lg">Add a new comment</h2>
                                         <div class="w-full md:w-full px-3 mb-2 mt-2">
