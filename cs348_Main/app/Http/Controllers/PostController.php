@@ -9,6 +9,7 @@ use App\Models\PostGenre;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\TMDB;
 use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
@@ -49,6 +50,14 @@ class PostController extends Controller
     {
         $post = Post::findOrFail($id);
         return view('pages/showPost', ['post' => $post]);
+    }
+
+
+    public function showUpcomingFilms (TMDB $TMDB) {
+        //$requestData = json_decode ($TMDB->getUpcomingMovies())->results;
+        $requestData = json_decode(app(TMDB::class)->getUpcomingMovies())->results;
+        //dd($requestData);
+        return view('pages.popularFilms', compact('requestData'));
     }
 
 
@@ -237,4 +246,5 @@ class PostController extends Controller
             return redirect()->route('allPosts');
         }
     }
+
 }

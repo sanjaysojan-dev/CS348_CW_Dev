@@ -28,6 +28,9 @@
                     <x-nav-link :href="route('genres')" :active="request()->routeIs('genres')">
                         {{ __('Movie Genres') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('showUpcomingFilms')" :active="request()->routeIs('showUpcomingFilms')">
+                        {{ __('Upcoming Films') }}
+                    </x-nav-link>
                 </div>
             </div>
 

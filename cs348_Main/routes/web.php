@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\TMDB;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +24,6 @@ Route::get('/', function () {
 })->middleware(['auth'])->name('dashboard');
 */
 
-
 Route::get('/', function () {
     return view('auth.register');
 });
@@ -45,6 +45,11 @@ Route::delete('deletePost/{id}', 'App\Http\Controllers\PostController@destroy')
 
 Route::delete('adminDelete/{id}', 'App\Http\Controllers\PostController@adminDestroy')
     ->middleware(['auth'])->name('adminDelete');
+
+Route::get('showUpcomingFilms', 'App\Http\Controllers\PostController@showUpcomingFilms')
+    ->middleware(['auth'])->name('showUpcomingFilms');
+
+
 
 
 Route::get('editPost/{id}', 'App\Http\Controllers\PostController@edit')
