@@ -211,4 +211,30 @@ class PostController extends Controller
             return redirect()->route('userPosts');
         }
     }
+
+
+    /**
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function adminDestroy($id)
+    {
+        $post = Post::find($id);
+        $user = Auth::user();
+
+        if ($user->can('delete', $post)) {
+            //Storage::delete('storage/images/'.$post->image);
+            if ($post->image->image != 'noImageUploaded.jpg') {
+                unlink('storage/images/' . $post->image->image);
+            }
+
+            Image::where('imageable_type', 'App\Models\Post')->where('imageable_id', $post->id)->delete();
+            $post->delete();
+            session()->flash('message', 'Post was Deleted!');
+            return redirect()->route('allPosts');
+        } else {
+            session()->flash('message', "You don't have authentication");
+            return redirect()->route('allPosts');
+        }
+    }
 }

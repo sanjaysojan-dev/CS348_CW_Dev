@@ -34,6 +34,17 @@
                                         @endslot
                                 @endcomponent
                             </div>
+
+                            @if(Auth::user()->admin)
+                                <form action="{{route('adminDelete',['id'=>$post->id])}}" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class=" bg-red-200 text-gray-600 px-2 py-2 rounded-md mr-2"
+                                            type="submit">Delete
+                                    </button>
+                                </form>
+                            @endif
+
                         @endforeach
                         <div class="flex justify-center">{{$posts ->links()}}</div>
                     </ul>

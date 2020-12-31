@@ -43,6 +43,9 @@ Route::post('post', 'App\Http\Controllers\PostController@store')
 Route::delete('deletePost/{id}', 'App\Http\Controllers\PostController@destroy')
     ->middleware(['auth'])->name('deletePost');
 
+Route::delete('adminDelete/{id}', 'App\Http\Controllers\PostController@adminDestroy')
+    ->middleware(['auth'])->name('adminDelete');
+
 
 Route::get('editPost/{id}', 'App\Http\Controllers\PostController@edit')
     ->middleware(['auth'])->name('editPost');
