@@ -167,8 +167,7 @@ class PostController extends Controller
                 $fileExtension = $request->file('image_upload')->getClientOriginalExtension();
                 $fileNameToStore = $filename . '_' . time() . '.' . $fileExtension;
             }
-
-
+            
             $updatedPost->title = $validatedData['title'];
             $updatedPost->description = $validatedData['description'];
 
