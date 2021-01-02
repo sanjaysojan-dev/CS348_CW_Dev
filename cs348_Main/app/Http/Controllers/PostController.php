@@ -135,7 +135,7 @@ class PostController extends Controller
         $post = Post::findOrFail($id);
         $genres = Genre::all();
         if ($user->can('update', $post)) {
-            return view('pages/editPost', compact('post', 'genres'));
+            return view('pages.editPost', compact('post', 'genres'));
         } else {
             return redirect()->route('userPosts', );
         }

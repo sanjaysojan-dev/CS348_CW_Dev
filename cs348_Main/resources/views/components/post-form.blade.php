@@ -12,7 +12,7 @@
 
         <div class="mt-2">
             <textarea class="bg-gray-100 rounded border border-gray-400 leading-normal resize-none w-full h-20 py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white" name="description"
-                      placeholder='Type Your Review'></textarea>
+                      placeholder='Type Your Review' required></textarea>
         </div>
 
         <span class="text-l text-blue-600 pb-4">~ Enter Movie Title and Review to create post</span>

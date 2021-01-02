@@ -42,7 +42,7 @@
                                     <form action="{{route('adminDelete',['id'=>$post->id])}}" method="post">
                                         @csrf
                                         @method('DELETE')
-                                        <button class=" bg-red-200 text-gray-600 px-2 py-2 rounded-md mr-2"
+                                        <button class=" bg-red-600 text-gray-600 px-2 py-2 rounded-md mr-2"
                                                 type="submit">Delete
                                         </button>
                                     </form>
