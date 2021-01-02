@@ -15,12 +15,15 @@
                       placeholder='Type Your Review'></textarea>
         </div>
 
-        <div>
+        <span class="text-l text-blue-600 pb-4">~ Enter Movie Title and Review to create post</span>
+
+        <div  class="mt-2">
             {{$slot}}
         </div>
 
+        <span class="text-l text-blue-600 pb-4">~ Categorise reviews into Genres </span>
 
-        <p class="mt-4 text-gray-800 font-medium">Upload Post Image</p>
+        <p class="mt-4 text-gray-800 font-medium">Upload Post Image ~ Max Image Size: 2MB </p>
 
         <div class="mt-2">
             <input type="file" name="image_upload" placeholder="Upload Image">

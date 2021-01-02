@@ -123,7 +123,7 @@ class CommentController extends Controller
 
         if ($user->can('delete', $comment)) {
             $comment->delete();
-            session()->flash('message', 'Comment was Deleted!');
+            session()->flash('message', 'Post was Deleted!');
             return redirect()->route('allComments');
         } else {
             session()->flash('message', "You don't have authentication");

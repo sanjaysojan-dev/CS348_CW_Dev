@@ -52,9 +52,9 @@ class UserFilmProfileController extends Controller
                 $userFilmProfile->film_reasoning = $request['reasoning'];
 
                 if ($request->hasFile('image_upload')) {
-                    $image = Image::where('imageable_type', 'App\Models\UserFilmProfile')->where('imageable_id', $userFilmProfile->id)->exists();
+                    $image = Image::where('imageable_type', 'App\Models\UserFilmProfile')->where('imageable_id', $userFilmProfile->id);
                     //dd($image);
-                    if ($image) {
+                    if ($image->exists()) {
                         unlink('storage/images/' . $userFilmProfile->image->image);
                         $image->delete();
                     }
@@ -81,7 +81,7 @@ class UserFilmProfileController extends Controller
                     $request->file('image_upload')->storeAs('public/images', $fileNameToStore);
                 }
             }
-
+            session()->flash('message', 'Profile is now up to date!');
             return redirect()->route('dashboard');
 
         } else {

@@ -57,7 +57,7 @@
                             </form>
                         </div>
                         <div class="w-auto text-white items-center p-4">
-                            <span class="text-lg font-bold pb-4">{{$comment->post->title}}</span>
+                            <span class="text-lg font-bold pb-4">Post: {{$comment->post->title}}</span>
                             <p class="leading-tight">
                                 {{$comment->post->description}}
                             </p>

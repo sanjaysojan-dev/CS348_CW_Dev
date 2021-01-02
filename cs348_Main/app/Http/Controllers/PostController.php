@@ -133,10 +133,11 @@ class PostController extends Controller
     {
         $user = Auth::user();
         $post = Post::findOrFail($id);
+        $genres = Genre::all();
         if ($user->can('update', $post)) {
-            return view('pages/editPost', ['post' => $post]);
+            return view('pages/editPost', compact('post', 'genres'));
         } else {
-            return redirect()->route('userPosts');
+            return redirect()->route('userPosts', );
         }
     }
 
