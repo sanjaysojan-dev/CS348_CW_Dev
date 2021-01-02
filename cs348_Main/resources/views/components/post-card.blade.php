@@ -1,14 +1,17 @@
-<!-- component -->
-<div class="postCard max-w-xs rounded overflow-hidden shadow-lg my-10">
-    <img class="w-full" src={{$image}}>
-    <div class="px-6 py-4">
-        <div class="font-bold text-xl mb-2">
-            {{$title}}</div>
-        <p class="truncate text-grey-darker text-base">
-            {{$slot}}
-        </p>
-        <div>
-            <h2 class="text-l text-gray-800 font-medium mr-auto">Created By: {{$creator}}</h2>
+
+<a href={{$link}}>
+    <div class="userPostCard md:flex shadow-lg  mx-6 md:mx-auto my-5 max-w-lg h-64">
+        <img class="h-full w-full md:w-1/3  object-cover rounded-lg rounded-r-none pb-5/6" src={{$image}} alt="bag">
+        <div class="w-full md:w-2/3 px-4 py-4 bg-white rounded-lg">
+            <div class="flex items-center">
+                <h2 class="text-xl text-gray-800 font-medium mr-auto">{{$title}}</h2>
+            </div>
+            <p class="truncate text-sm text-gray-700 mt-4">
+                {{$slot}}
+            </p>
+            <div class="">
+                <h2  class="text-xl text-gray-800 font-medium mr-auto">Created By: {{$creator}}</h2>
+            </div>
         </div>
     </div>
-</div>
+</a>

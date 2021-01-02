@@ -39,17 +39,13 @@
 
                     <div class="form-item w-full">
                         <label class="text-xl ">My Interests</label>
-                        <textarea cols="30" rows="5" class="w-full appearance-none text-black text-opacity-50 rounded shadow py-1 px-2 mr-2 focus:outline-none focus:shadow-outline focus:border-blue-200 text-opacity-25 " name="interests">
-                            {{$interests}}
-                        </textarea>
+                        <textarea cols="30" rows="5"   class="w-full appearance-none text-black text-opacity-50 rounded shadow py-1 px-2 mr-2 focus:outline-none focus:shadow-outline focus:border-blue-200 text-opacity-25 " name="interests">{{$interests}}</textarea>
                     </div>
 
 
                     <div class="form-item w-full">
                         <label class="text-xl ">Is it really my favourite film?</label>
-                        <textarea cols="30" rows="5" class="w-full appearance-none text-black text-opacity-50 rounded shadow py-1 px-2 mr-2 focus:outline-none focus:shadow-outline focus:border-blue-200 text-opacity-25 " name="reasoning">
-                            {{$reasoning}}
-                        </textarea>
+                        <textarea cols="30" rows="5" class="w-full appearance-none text-black text-opacity-50 rounded shadow py-1 px-2 mr-2 focus:outline-none focus:shadow-outline focus:border-blue-200 text-opacity-25 " name="reasoning">{{$reasoning}}</textarea>
                     </div>
 
                     <p class="mt-4 text-gray-800 font-medium">Upload Profile Image</p>

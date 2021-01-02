@@ -2,22 +2,32 @@
 
     <style>
         #container {
+
             display: table;
             width: 100%;
-            background: #7a7575;
+            height: auto;
+            background: #374151;
+
+
         }
 
         #container > div {
+
             display: table-cell;
             padding: 1em;
             word-wrap: break-word;
-            height: auto;
+            height: 375px;
             width: 60%;
+            float: left;
+            overflow: auto;
+
         }
 
         #container > div:nth-child(2) {
             width: 40%;
-            background: #7a7575;
+            padding-right: 30px;
+            height: auto;
+            background: #374151;
         }
     </style>
 
@@ -33,12 +43,14 @@
 
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-gray-400 border-b border-gray-200">
-                    <div id="container">
+                <div class="p-6 bg-gray-600 border-b border-gray-200">
+                    <div id="container" >
+
                         <div class="relative flex mx-auto  justify-center ">
-                            <p class="absolute inset-10 text-l text-gray-800 font-medium mr-auto">{{$post->description}}</p>
+                            <p class="absolute inset-10 text-l text-white-100 font-medium mr-auto">{{$post->description}}</p>
                             <br style="clear: both">
                         </div>
+
                         <div class=" flex mx-auto  justify-center">
                             @if($post->image->image == "noImageUploaded.jpg")
                                 <img class="h-80 w-full object-cover shadow rounded pb-5/6"

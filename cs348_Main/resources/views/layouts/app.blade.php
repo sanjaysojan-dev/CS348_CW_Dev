@@ -26,6 +26,15 @@
                     {{ $header }}
                 </div>
             </header>
+                @if(session('message'))
+                    <div class="flex  bg-white shadow-lg rounded-lg overflow-hidden border-4 border-blue-500 border-dashed">
+                        <div class="flex items-center px-2 py-3">
+                            <div class="mx-3 ">
+                                <p class="text-gray-600">{{session('message')}} </p>
+                            </div>
+                        </div>
+                    </div>
+            @endif
 
             <!-- Page Content -->
             <main >

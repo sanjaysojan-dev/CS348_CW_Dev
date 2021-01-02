@@ -21,7 +21,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::orderBy('created_at', 'desc')->paginate(2);
+        $posts = Post::orderBy('created_at', 'desc')->paginate(3);
         //dd($posts);
         return view('pages.allPosts', compact('posts'));
     }
@@ -188,7 +188,7 @@ class PostController extends Controller
             $updatedPost->user_id = Auth::user()->id;
             $updatedPost->save();
 
-            session()->flash('message', 'Post was successfully created!');
+            session()->flash('message', 'Post was successfully updated!');
             return redirect()->route('userPosts');
         } else {
             return redirect()->route('userPosts');

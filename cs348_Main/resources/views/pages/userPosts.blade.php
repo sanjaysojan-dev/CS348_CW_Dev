@@ -1,10 +1,11 @@
 <x-app-layout>
 
+
     <style>
         #container {
             display: table;
             width: 100%;
-            background: #7a7575;
+            background: #374151;
         }
 
         #container > div {
@@ -21,13 +22,13 @@
             padding-top: 60px;
             padding-right: 30px;
             height: auto;
-            background: #7a7575;
+            background: #374151;
         }
     </style>
 
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Post') }}
+            {{ __('My Posts') }}
         </h2>
     </x-slot>
 
@@ -35,7 +36,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
 
-                <div class=" p-6 bg-gray-400 border-b border-gray-200">
+                <div class=" p-6 bg-gray-600 ">
                     <div id="container">
                         <div class="relative flex mx-auto  justify-center">
 
@@ -58,6 +59,9 @@
                         @foreach($posts as $post)
                             <div>
                                 @component('components/user-post-card')
+                                    @slot('link')
+                                        {{route('showPost',['id' => $post->id])}}}
+                                    @endslot
                                     @if($post->image->image == "noImageUploaded.jpg")
                                         @slot('image')
                                             {{"https://images.unsplash.com/photo-1536440136628-849c177e76a1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=925&q=80"}}
@@ -84,7 +88,7 @@
                                     <form action="{{route('deletePost',['id'=>$post->id])}}" method="post">
                                         @csrf
                                         @method('DELETE')
-                                        <button class=" bg-red-200 text-gray-600 px-2 py-2 rounded-md mr-2"
+                                        <button class=" bg-red-500 text-gray-900 px-2 py-2 rounded-md mr-2"
                                                 type="submit">Delete
                                         </button>
                                     </form>
