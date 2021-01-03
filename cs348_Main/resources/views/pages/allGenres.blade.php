@@ -15,7 +15,8 @@
                                     @slot('genre')
                                         {{$genre->description}}
                                     @endslot
-                                        <a href="{{ route('showGenrePost',['id' => $genre->id])}}" class="px-4 py-2 bg-blue-500 text-white rounded-full">{{$genre->title}}</a>
+                                    <a href="{{ route('showGenrePost',['id' => $genre->id])}}"
+                                       class="px-4 py-2 bg-blue-500 text-white rounded-full">{{$genre->title}}</a>
                                 @endcomponent
                             @endforeach
                         </div>

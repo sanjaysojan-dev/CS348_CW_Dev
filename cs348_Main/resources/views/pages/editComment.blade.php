@@ -62,10 +62,7 @@
                                 {{$comment->post->description}}
                             </p>
                         </div>
-
                     </div>
-
-
                 </div>
             </div>
         </div>

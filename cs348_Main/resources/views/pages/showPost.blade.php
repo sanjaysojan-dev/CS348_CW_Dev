@@ -44,7 +44,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-gray-600 border-b border-gray-200">
-                    <div id="container" >
+                    <div id="container">
 
                         <div class="relative flex mx-auto  justify-center ">
                             <p class="absolute inset-10 text-l text-white-100 font-medium mr-auto">{{$post->description}}</p>
@@ -63,7 +63,6 @@
                             <br style="clear: both">
                         </div>
                     </div>
-
                     <div id="commentSection">
                         <div>
                             <div class="w-full  flex mx-auto  justify-center shadow-lg ">
@@ -87,7 +86,6 @@
                                 </form>
                             </div>
                         </div>
-
                         <div v-for="comment in comments">
                             <div id="creator">
                                 @component('components.comment-card')
@@ -110,7 +108,6 @@
                 </div>
             </div>
         </div>
-
         <script>
             var app = new Vue({
                 el: '#commentSection',
