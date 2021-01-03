@@ -1,7 +1,7 @@
 
 <a href={{$link}}>
     <div class="userPostCard md:flex shadow-lg  mx-6 md:mx-auto my-5 max-w-lg h-64">
-        <img class="h-full w-full md:w-1/3  object-cover rounded-lg rounded-r-none pb-5/6" src={{$image}} alt="bag">
+        <img class="h-full w-full md:w-1/3  object-cover rounded-lg rounded-r-none pb-5/6" src={{$image}} alt="movie_image">
         <div class="w-full md:w-2/3 px-4 py-4 bg-white rounded-lg">
             <div class="flex items-center">
                 <h2 class="text-xl text-gray-800 font-medium mr-auto">{{$title}}</h2>

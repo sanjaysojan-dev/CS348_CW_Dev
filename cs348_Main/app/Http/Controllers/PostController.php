@@ -10,24 +10,24 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\TMDB;
-use Illuminate\Support\Facades\Storage;
+
 
 class PostController extends Controller
 {
 
     /**
-     * Display a listing of the resource.
+     * Display all Post
+     *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function index()
     {
         $posts = Post::orderBy('created_at', 'desc')->paginate(3);
-        //dd($posts);
         return view('pages.allPosts', compact('posts'));
     }
 
-
     /**
+     * Display all user specific Posts
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
@@ -35,15 +35,14 @@ class PostController extends Controller
     {
         $posts = User::find(Auth::user()->id)->posts;
         $genres = Genre::all();
-        //dd($posts);
+
         return view('pages.userPosts', compact('posts', 'genres'));
     }
-
 
     /**
      * Display the specified resource.
      *
-     * @param int $id
+     * @param int $id selected Post ID
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -52,17 +51,22 @@ class PostController extends Controller
         return view('pages/showPost', ['post' => $post]);
     }
 
-
-    public function showUpcomingFilms (TMDB $TMDB) {
-        //$requestData = json_decode ($TMDB->getUpcomingMovies())->results;
+    /**
+     * Method to return JSON response of Upcoming Films
+     *
+     * @param TMDB $TMDB
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     *
+     */
+    public function showUpcomingFilms(TMDB $TMDB)
+    {
         $requestData = json_decode(app(TMDB::class)->getUpcomingMovies())->results;
-        //dd($requestData);
         return view('pages.popularFilms', compact('requestData'));
     }
 
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly create Post
      *
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\RedirectResponse
@@ -70,7 +74,8 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $user = Auth::user();
-        //dd($user->can('create', Post::class));
+
+        //Checks for permission
         if ($user->can('create', Post::class)) {
 
             $validatedData = $request->validate([
@@ -79,17 +84,16 @@ class PostController extends Controller
                 'image_upload' => 'image|nullable| max:1999'
             ]);
 
-            //dd($request);
-
-
             if ($request->hasFile('image_upload')) {
+                //Full File Name
                 $fullFileName = $request->file('image_upload')->getClientOriginalName();
-
+                //File Name Only
                 $filename = pathinfo($fullFileName, PATHINFO_FILENAME);
                 $fileExtension = $request->file('image_upload')->getClientOriginalExtension();
 
+                //New File Name
                 $fileNameToStore = $filename . '_' . time() . '.' . $fileExtension;
-                $path = $request->file('image_upload')->storeAs('public/images', $fileNameToStore);
+                $request->file('image_upload')->storeAs('public/images', $fileNameToStore);
 
             } else {
                 $fileNameToStore = 'noImageUploaded.jpg';
@@ -97,15 +101,17 @@ class PostController extends Controller
 
             $image = new Image(['image' => $fileNameToStore]);
 
+            //Creating new Post
             $newPost = new Post();
             $newPost->title = $validatedData['title'];
             $newPost->description = $validatedData['description'];
-            //$newPost->image = $fileNameToStore;
             $newPost->user_id = Auth::user()->id;
             $newPost->save();
             $newPost->image()->save($image);
 
             $genres = Genre::all();
+
+            //Saving many to many relationship
             foreach ($genres as $genre) {
                 if ($request->input($genre->title) != null) {
                     $postGenre = new PostGenre();
@@ -124,9 +130,9 @@ class PostController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Method to direct user to edit page
      *
-     * @param int $id
+     * @param int $id Post ID of selected ID
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -134,15 +140,17 @@ class PostController extends Controller
         $user = Auth::user();
         $post = Post::findOrFail($id);
         $genres = Genre::all();
+
+        //Checks for permission
         if ($user->can('update', $post)) {
             return view('pages.editPost', compact('post', 'genres'));
         } else {
-            return redirect()->route('userPosts', );
+            return redirect()->route('userPosts',);
         }
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified Post
      *
      * @param \Illuminate\Http\Request $request
      * @param int $id
@@ -150,10 +158,10 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-
         $user = Auth::user();
         $updatedPost = Post::find($id);
 
+        //Checks for permission
         if ($user->can('update', $updatedPost)) {
             $validatedData = $request->validate([
                 'title' => 'required|max:255',
@@ -161,25 +169,24 @@ class PostController extends Controller
                 'image_upload' => 'image|nullable| max:1999'
             ]);
 
+            $updatedPost->title = $validatedData['title'];
+            $updatedPost->description = $validatedData['description'];
+
             if ($request->hasFile('image_upload')) {
+
                 $fullFileName = $request->file('image_upload')->getClientOriginalName();
                 $filename = pathinfo($fullFileName, PATHINFO_FILENAME);
                 $fileExtension = $request->file('image_upload')->getClientOriginalExtension();
                 $fileNameToStore = $filename . '_' . time() . '.' . $fileExtension;
-            }
-            
-            $updatedPost->title = $validatedData['title'];
-            $updatedPost->description = $validatedData['description'];
-
-
-            if ($request->hasFile('image_upload')) {
 
                 if ($updatedPost->image->image != 'noImageUploaded.jpg') {
+                    //Deleting image from folder
                     unlink('storage/images/' . $updatedPost->image->image);
                 }
 
-                //$updatedPost->image =  $fileNameToStore;
+                //Deleting Image Reference
                 Image::where('imageable_type', 'App\Models\Post')->where('imageable_id', $updatedPost->id)->delete();
+                //Creating new Image Link
                 $image = new Image(['image' => $fileNameToStore]);
                 $updatedPost->image()->save($image);
                 $request->file('image_upload')->storeAs('public/images', $fileNameToStore);
@@ -195,9 +202,10 @@ class PostController extends Controller
         }
     }
 
-
     /**
-     * @param $id
+     * Delete method for users
+     *
+     * @param $id ID of post to be deleted
      * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy($id)
@@ -205,12 +213,12 @@ class PostController extends Controller
         $post = Post::find($id);
         $user = Auth::user();
 
+        //Checks for permission
         if ($user->can('delete', $post)) {
-            //Storage::delete('storage/images/'.$post->image);
             if ($post->image->image != 'noImageUploaded.jpg') {
                 unlink('storage/images/' . $post->image->image);
             }
-
+            //Deleting Image Reference
             Image::where('imageable_type', 'App\Models\Post')->where('imageable_id', $post->id)->delete();
             $post->delete();
             session()->flash('message', 'Post was Deleted!');
@@ -223,6 +231,8 @@ class PostController extends Controller
 
 
     /**
+     * Delete method for admins
+     *
      * @param $id
      * @return \Illuminate\Http\RedirectResponse
      */
@@ -231,12 +241,12 @@ class PostController extends Controller
         $post = Post::find($id);
         $user = Auth::user();
 
+        //Checks for permission
         if ($user->can('delete', $post)) {
-            //Storage::delete('storage/images/'.$post->image);
             if ($post->image->image != 'noImageUploaded.jpg') {
                 unlink('storage/images/' . $post->image->image);
             }
-
+            //Deleting Image Reference
             Image::where('imageable_type', 'App\Models\Post')->where('imageable_id', $post->id)->delete();
             $post->delete();
             session()->flash('message', 'Post was Deleted!');
@@ -246,5 +256,4 @@ class PostController extends Controller
             return redirect()->route('allPosts');
         }
     }
-
 }

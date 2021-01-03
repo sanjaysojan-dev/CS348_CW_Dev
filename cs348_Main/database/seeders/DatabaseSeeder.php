@@ -18,10 +18,10 @@ class DatabaseSeeder extends Seeder
             UserTableSeeder::class,
             PostTableSeeder::class,
             CommentTableSeeder::class,
+            UserFilmProfileTableSeeder::class,
+            ImageTableSeeder::class,
             GenreTableSeeder::class,
             PostGenreTableSeeder::class,
-            UserFilmProfileTableSeeder::class,
-            ImageTableSeeder::class
         ]);
 
     }

@@ -29,13 +29,6 @@
 
                     </div>
                     @component('components.film-profile-card')
-                        @slot('name')
-                            {{ Auth::user()->name}}
-                        @endslot
-                        @slot('email')
-                            {{ Auth::user()->email }}
-                        @endslot
-
                         @if(count($userFilmProfile )>0)
                             @foreach($userFilmProfile as $profile)
                                 <img

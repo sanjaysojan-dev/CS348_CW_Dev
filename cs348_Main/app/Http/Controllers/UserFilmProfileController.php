@@ -16,12 +16,9 @@ class UserFilmProfileController extends Controller
      */
     public function index()
     {
-
         $userFilmProfile = UserFilmProfile::where('user_id', Auth::user()->id)->get();
-        //dd($userFilmProfile);
         return view('dashboard', compact('userFilmProfile'));
     }
-
 
     /**
      * Update the specified resource in storage.
@@ -42,23 +39,22 @@ class UserFilmProfileController extends Controller
                 $fileNameToStore = $filename . '_' . time() . '.' . $fileExtension;
             }
 
-            //dd($request);
-
             $userFilmProfile = UserFilmProfile::where('user_id', Auth::user()->id)->first();
-
+            // Checks if user has a Film Profile
             if ($userFilmProfile != null) {
+                //Assigns new updated fields
                 $userFilmProfile->favourite_film = $request['favFilm'];
                 $userFilmProfile->interests = $request['interests'];
                 $userFilmProfile->film_reasoning = $request['reasoning'];
 
                 if ($request->hasFile('image_upload')) {
+                    //Removes Image Reference
                     $image = Image::where('imageable_type', 'App\Models\UserFilmProfile')->where('imageable_id', $userFilmProfile->id);
-                    //dd($image);
                     if ($image->exists()) {
+                        //Removes old image from folder
                         unlink('storage/images/' . $userFilmProfile->image->image);
                         $image->delete();
                     }
-
                     $newImage = new Image(['image' => $fileNameToStore]);
                     $userFilmProfile->image()->save($newImage);
                     $request->file('image_upload')->storeAs('public/images', $fileNameToStore);
@@ -67,13 +63,13 @@ class UserFilmProfileController extends Controller
                 $userFilmProfile->save();
 
             } else {
+                //creates a new User Film Profile
                 $filmProfile = new UserFilmProfile();
                 $filmProfile->favourite_film = $request['favFilm'];
                 $filmProfile->interests = $request['interests'];
                 $filmProfile->film_reasoning = $request['reasoning'];
                 $filmProfile->user_id = Auth::user()->id;
                 $filmProfile->save();
-
                 if ($request->hasFile('image_upload')) {
 
                     $image = new Image(['image' => $fileNameToStore]);
@@ -87,7 +83,5 @@ class UserFilmProfileController extends Controller
         } else {
             return redirect()->route('dashboard');
         }
-
     }
-
 }

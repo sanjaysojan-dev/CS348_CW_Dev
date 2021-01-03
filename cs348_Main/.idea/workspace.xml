@@ -20,7 +20,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1e07719e-3e15-4f90-add9-d37474cdcffa" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CommentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CommentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/GenreController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/GenreController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PostController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserFilmProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserFilmProfileController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/film-profile-card.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/film-profile-card.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/post-card.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/post-card.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/allPosts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/allPosts.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/showPost.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/showPost.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -203,7 +213,8 @@
       <workItem from="1609417233485" duration="12372000" />
       <workItem from="1609443106403" duration="3408000" />
       <workItem from="1609506506924" duration="936000" />
-      <workItem from="1609525345576" duration="46137000" />
+      <workItem from="1609525345576" duration="57191000" />
+      <workItem from="1609686055982" duration="12863000" />
     </task>
     <servers />
   </component>
@@ -227,6 +238,10 @@
       <screen x="0" y="-1080" width="1536" height="824" />
     </state>
     <state x="395" y="-990" key="#Inspections/0.0.1536.824/0.-1080.1536.824@0.-1080.1536.824" timestamp="1608478661169" />
+    <state x="2143" y="67" width="1089" height="728" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1609645468665">
+      <screen x="1920" y="0" width="1536" height="824" />
+    </state>
+    <state x="2143" y="67" width="1089" height="728" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/1920.0.1536.824@1920.0.1536.824" timestamp="1609645468665" />
     <state x="495" y="-866" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1609251199333">
       <screen x="0" y="-1080" width="1536" height="824" />
     </state>

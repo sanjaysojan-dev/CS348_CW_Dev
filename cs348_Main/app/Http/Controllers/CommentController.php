@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Auth;
 class CommentController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Method to display all comments of logged in user
      *
      * @return \Illuminate\Http\Response
      */
@@ -25,7 +25,9 @@ class CommentController extends Controller
     }
 
     /**
-     * @param $id
+     * Method to retrieve comments for all comments for post
+     *
+     * @param $id ID of post
      * @return \Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection
      */
     public function apiIndex($id)
@@ -35,34 +37,33 @@ class CommentController extends Controller
     }
 
     /**
+     * Method to create new comment
+     *
      * @param Request $request
      * @return \Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection
      */
     public function apiStore(Request $request)
     {
-        $user = Auth::user();
+        $validatedData = $request->validate([
+            'description' => 'required',
+        ]);
 
+        //Creates a new comment
+        $comment = new Comment;
+        $comment->description = $validatedData['description'];
+        $comment->user_id = $request['user_id'];
+        $comment->post_id = $request['post_id'];
+        $comment->save();
 
-            $validatedData = $request->validate([
-                'description' => 'required',
-            ]);
+        //Loads creator of comment
+        $newComment = Comment::with(['user'])->where('id', $comment->id)->get();
 
+        $post = Post::find($request['post_id']);
+        $commentAuthor = User::find($comment->user_id);
+        $user = User::find($post->user->id);
+        $user->notify(new PostNotification('New comment by ' . $commentAuthor->name . " on Post " . $post->title));
 
-            $comment = new Comment;
-            $comment->description = $validatedData['description'];
-            $comment->user_id = $request['user_id'];
-            $comment->post_id = $request['post_id'];
-            $comment->save();
-
-            $newComment = Comment::with(['user'])->where('id', $comment->id)->get();
-
-
-            $post = Post::find($request['post_id']);
-            $commentAuthor = User::find($comment->user_id);
-            $user = User::find($post->user->id);
-            $user->notify(new PostNotification('New comment by ' . $commentAuthor->name . " on Post " . $post->title));
-
-            return $newComment;
+        return $newComment;
     }
 
 
@@ -84,7 +85,7 @@ class CommentController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified comment
      *
      * @param \Illuminate\Http\Request $request
      * @param int $id
@@ -96,6 +97,7 @@ class CommentController extends Controller
         $comment = Comment::find($id);
 
         if ($user->can('update', $comment)) {
+
             $validatedData = $request->validate([
                 'description' => 'required',
             ]);
@@ -111,7 +113,7 @@ class CommentController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified comment
      *
      * @param int $id
      * @return \Illuminate\Http\Response

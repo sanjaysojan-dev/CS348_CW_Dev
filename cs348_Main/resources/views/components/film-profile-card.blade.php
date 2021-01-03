@@ -21,7 +21,7 @@
 
                         <div class="form-item w-full">
                             <label class="text-xl ">Email</label>
-                            <input type="text" value="{{ Auth::user()->name }}" class="w-full appearance-none text-black text-opacity-50 rounded shadow py-1 px-2 mr-2 focus:outline-none focus:shadow-outline focus:border-blue-200 text-opacity-25 " disabled>
+                            <input type="text" value="{{ Auth::user()->email }}" class="w-full appearance-none text-black text-opacity-50 rounded shadow py-1 px-2 mr-2 focus:outline-none focus:shadow-outline focus:border-blue-200 text-opacity-25 " disabled>
                         </div>
 
                         <div class="form-item w-full">
