@@ -21,7 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1e07719e-3e15-4f90-add9-d37474cdcffa" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserFilmProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserFilmProfileController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -207,7 +206,7 @@
       <workItem from="1609506506924" duration="936000" />
       <workItem from="1609525345576" duration="57191000" />
       <workItem from="1609686055982" duration="15859000" />
-      <workItem from="1609708765177" duration="15641000" />
+      <workItem from="1609708765177" duration="17617000" />
     </task>
     <servers />
   </component>
