@@ -20,6 +20,8 @@ class UserFilmProfile extends Model
     }
 
     /**
+     * Returns the image model associated with post
+     *
      * @return \Illuminate\Database\Eloquent\Relations\MorphOne
      */
     public function image()
